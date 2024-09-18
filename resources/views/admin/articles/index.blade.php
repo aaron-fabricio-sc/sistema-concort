@@ -3,11 +3,11 @@
 @section('title', 'Lista de grupos')
 
 @section('content_header')
-    <h1>Administrador para grupos.</h1>
+    <h1>Administrador para Articulos.</h1>
 @stop
 
 @section('content')
-    <h4 class="text-info">Lista de los grupos</h4>
+    <h4 class="text-info">Lista de los articulos</h4>
     {{-- 
  @livewire('employee.employee-index')
  --}}
@@ -27,7 +27,7 @@
 
             <div class="card-blue">
 
-                @include('admin.groups.partials.nav')
+                @include('admin.articles.partials.nav')
 
                 <div class="table-responsive">
                     <table class="table table-striped" id="employees">
@@ -35,6 +35,19 @@
                             <tr>
                                 <th>Nombre</th>
                                 <th>Descripción</th>
+                                <th>Cod</th>
+
+                                <th>Cantidad Inicial</th>
+
+                                <th>Cantidad Actual</th>
+                                <th>Precio Unitario</th>
+
+                                <th>Valor Total</th>
+
+                                <th>Grupo</th>
+
+
+
 
                                 <th>Estado</th>
                                 <th class="text-info">Ver más</th>
@@ -54,10 +67,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($dataGroup as $group)
+                            @foreach ($dataArticle as $article)
                                 <tr>
-                                    <td>{{ $group->name }}</td>
-                                    <td>{{ $group->description }}</td>
+                                    <td>{{ $article->nombre }}</td>
+                                    <td>{{ $article->descripcion }}</td>
+
+                                    <td>{{ $article->cod }}</td>
+
+                                    <td>{{ $article->cantidad_inicial }}</td>
+
+                                    <td>{{ $article->cantidad_actual }}</td>
+
+                                    <td>{{ $article->precio_unitario }}</td>
+                                    <td>{{ $article->valor_total }}</td>
+                                    <td>{{ $article->group->name }}</td>
 
 
                                     <td>
@@ -69,7 +92,8 @@
                                     <td>
 
                                         <a class="btn btn-info btn-sm m-1"
-                                            href="{{ route('admin.groups.show', $group) }}"><i class="fas fa-edit"></i></a>
+                                            href="{{ route('admin.groups.show', $article) }}"><i
+                                                class="fas fa-edit"></i></a>
 
                                     </td>
 
@@ -77,13 +101,14 @@
                                     <td>
 
                                         <a class="btn btn-primary btn-sm m-1"
-                                            href="{{ route('admin.groups.edit', $group) }}"><i class="fas fa-edit"></i></a>
+                                            href="{{ route('admin.groups.edit', $article) }}"><i
+                                                class="fas fa-edit"></i></a>
 
                                     </td>
 
                                     <td>
 
-                                        <a href="{{ route('admin.groups.viewConfirmDelete', $group->id) }}"
+                                        <a href="{{ route('admin.groups.viewConfirmDelete', $article->id) }}"
                                             class="btn btn-danger btn-sm  m-1"> <i class="fas fa-trash-alt"></i> </a>
 
                                     </td>
@@ -97,11 +122,26 @@
                             <tr>
                                 <th>Nombre</th>
                                 <th>Descripción</th>
-                                <th>Estado</th>
+                                <th>Cod</th>
 
+                                <th>Cantidad Inicial</th>
+
+                                <th>Cantidad Actual</th>
+                                <th>Precio Unitario</th>
+
+                                <th>Valor Total</th>
+
+                                <th>Grupo</th>
+
+
+
+
+                                <th>Estado</th>
                                 <th class="text-info">Ver más</th>
 
+
                                 <th class="text-primary">Editar</th>
+
 
                                 <th class="text-danger">Eliminar</th>
 

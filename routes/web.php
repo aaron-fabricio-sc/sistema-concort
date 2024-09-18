@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GroupController;
+use App\Models\Article;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +33,37 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::resource("/groups", GroupController::class)->middleware(['auth', 'verified'])->names('groups');
+Route::get("/groups/viewConfirmDelete/{id}", [GroupController::class, "viewConfirmDelete"])->middleware(['auth', 'verified'])->name("admin.groups.viewConfirmDelete");
+
+Route::get("/groups/inactive", [GroupController::class, 'inactive'])->middleware(['auth', 'verified'])->name('admin.groups.inactive');
+
+
+Route::get("/groups/inactivate/{department}", [GroupController::class, 'inactivate'])->middleware(['auth', 'verified'])->name('admin.groups.inactivate');
+
+
+Route::get("/group/activate/{group}", [GroupController::class, 'activate'])->middleware(['auth', 'verified'])->name('admin.groups.activate');
+
+
+
+
+Route::resource("/groups", GroupController::class)->middleware(['auth', 'verified'])->names('admin.groups');
+
+
+
+
+
+
+
+Route::get("/articles/viewConfirmDelete/{id}", [ArticleController::class, "viewConfirmDelete"])->middleware(['auth', 'verified'])->name("admin.articles.viewConfirmDelete");
+
+Route::get("/articles/inactive", [ArticleController::class, 'inactive'])->middleware(['auth', 'verified'])->name('admin.articles.inactive');
+
+
+Route::get("/articles/inactivate/{department}", [ArticleController::class, 'inactivate'])->middleware(['auth', 'verified'])->name('admin.articles.inactivate');
+
+
+Route::get("/articles/activate/{group}", [ArticleController::class, 'activate'])->middleware(['auth', 'verified'])->name('admin.articles.activate');
+
+Route::resource("/articles", ArticleController::class)->middleware(['auth', 'verified'])->names('admin.articles');
 
 require __DIR__ . '/auth.php';

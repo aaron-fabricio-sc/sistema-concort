@@ -3,11 +3,11 @@
 @section('title', 'Lista de grupos')
 
 @section('content_header')
-    <h1>Administrador para grupos.</h1>
+    <h1>Administrador para grupos inactivos.</h1>
 @stop
 
 @section('content')
-    <h4 class="text-info">Lista de los grupos</h4>
+    <h4 class="text-info">Lista de los grupos inactivos</h4>
     {{-- 
  @livewire('employee.employee-index')
  --}}
@@ -37,13 +37,7 @@
                                 <th>Descripción</th>
 
                                 <th>Estado</th>
-                                <th class="text-info">Ver más</th>
-
-
-                                <th class="text-primary">Editar</th>
-
-
-                                <th class="text-danger">Eliminar</th>
+                                <th class="text-info">Reestablecer</th>
 
 
 
@@ -61,7 +55,7 @@
 
 
                                     <td>
-                                        <b class="text-success">Activo</b>
+                                        <b class="text-danger">Inactivo</b>
                                     </td>
 
 
@@ -69,24 +63,13 @@
                                     <td>
 
                                         <a class="btn btn-info btn-sm m-1"
-                                            href="{{ route('admin.groups.show', $group) }}"><i class="fas fa-edit"></i></a>
+                                            href="{{ route('admin.groups.activate', $group) }}"><i
+                                                class="fas fa-edit"></i></a>
 
                                     </td>
 
 
-                                    <td>
 
-                                        <a class="btn btn-primary btn-sm m-1"
-                                            href="{{ route('admin.groups.edit', $group) }}"><i class="fas fa-edit"></i></a>
-
-                                    </td>
-
-                                    <td>
-
-                                        <a href="{{ route('admin.groups.viewConfirmDelete', $group->id) }}"
-                                            class="btn btn-danger btn-sm  m-1"> <i class="fas fa-trash-alt"></i> </a>
-
-                                    </td>
 
 
                                 </tr>
@@ -98,12 +81,7 @@
                                 <th>Nombre</th>
                                 <th>Descripción</th>
                                 <th>Estado</th>
-
-                                <th class="text-info">Ver más</th>
-
-                                <th class="text-primary">Editar</th>
-
-                                <th class="text-danger">Eliminar</th>
+                                <th class="text-info">Reestablecer</th>
 
 
 

@@ -29,6 +29,14 @@ class DatabaseSeeder extends Seeder
             "password" => bcrypt(123456)
         ]);
 
-        Group::factory(10)->create();
+        //Group::factory(10)->create();
+
+        $this->call([
+            GroupSeeder::class
+        ]);
+
+        $this->call([
+            ArticleSeeder::class
+        ]);
     }
 }
