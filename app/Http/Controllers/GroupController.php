@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreGroup;
 use App\Models\Group;
 use Illuminate\Http\Request;
 
@@ -37,14 +38,9 @@ class GroupController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreGroup $request)
     {
         //
-
-        $request->validate([
-            "name" => "required",
-            "description" => "required"
-        ]);
 
         $group = Group::create($request->all());
 
