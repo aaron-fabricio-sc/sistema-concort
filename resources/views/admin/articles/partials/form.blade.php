@@ -41,6 +41,7 @@
     {!! Form::number('precio_unitario', null, [
         'class' => 'w-50 form-control',
         'placeholder' => 'Precio unitario',
+        'step' => '0.01',
     ]) !!}
     @error('precio_unitario')
         <span class="text-danger">{{ $message }}</span>

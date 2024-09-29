@@ -37,7 +37,7 @@
                                 <th>Descripción</th>
 
                                 <th>Estado</th>
-                                <th class="text-info">Ver más</th>
+
 
 
                                 <th class="text-primary">Editar</th>
@@ -66,12 +66,6 @@
 
 
 
-                                    <td>
-
-                                        <a class="btn btn-info btn-sm m-1"
-                                            href="{{ route('admin.groups.show', $group) }}"><i class="fas fa-edit"></i></a>
-
-                                    </td>
 
 
                                     <td>
@@ -99,7 +93,7 @@
                                 <th>Descripción</th>
                                 <th>Estado</th>
 
-                                <th class="text-info">Ver más</th>
+
 
                                 <th class="text-primary">Editar</th>
 

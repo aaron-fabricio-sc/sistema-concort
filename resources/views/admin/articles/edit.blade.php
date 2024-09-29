@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <h4 class="text-info">Crear un nuevo Articulo.</h4>
+    <h4 class="text-info">Editar el Artículo.</h4>
     <div class="card fondo-card fondo">
         @if (session('message'))
             <div class="alert alert-success">
@@ -23,7 +23,7 @@
         <div class="card-body overley">
 
             @include('admin.articles.partials.nav')
-            {!! Form::open(['route' => 'admin.articles.store']) !!}
+            {!! Form::model($article, ['route' => ['admin.articles.update', $article], 'method' => 'put']) !!}
 
             @include('admin.articles.partials.form')
 

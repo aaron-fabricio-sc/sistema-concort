@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreGroup;
 use App\Models\Group;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class GroupController extends Controller
 {
@@ -120,5 +121,16 @@ class GroupController extends Controller
         $group->status = 0;
         $group->save();
         return redirect()->route("admin.groups.index")->with("message-danger", "Se inhabilito el Grupo.");
+    }
+
+    public function pdfList()
+    {
+
+
+        $actives = Group::where('status', 1)->get();
+        $inactives = Group::where('status', 0)->get();
+        // $settings = Settings::find(1);
+        $pdf = Pdf::loadView('admin.groups.pdf.pdf', compact("actives", "inactives"));
+        return $pdf->stream();
     }
 }

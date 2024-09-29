@@ -3,32 +3,32 @@
 @section('title', 'Eliminar Empleado')
 
 @section('content_header')
-    <h1>Administrador de los grupos.</h1>
+    <h1>Administrador de los Artículos.</h1>
 @stop
 
 @section('content')
-    <h4 class="title_view">Eliminar el grupo</h4>
+    <h4 class="title_view">Eliminar el Artículo</h4>
     <div class="card fondo-card">
         <div class="card-body">
 
-            @include('admin.groups.partials.nav')
+            @include('admin.articles.partials.nav')
 
             <div class="card">
                 <div class="card-body shadow-lg">
-                    <h4 class="text-danger">Esta seguro que desea eliminar el grupo: </h4>
+                    <h4 class="text-danger">Esta seguro que desea eliminar el Artículo: </h4>
 
-                    <p class=" text-lg"><b>Nombre: </b> {{ $dataGroup->name }}</p>
-                    <p class=" text-lg"><b>Descripción: </b> {{ $dataGroup->description }}
+                    <p class=" text-lg"><b>Nombre: </b> {{ $article->nombre }}</p>
+                    <p class=" text-lg"><b>Descripción: </b> {{ $article->descripcion }}
                     </p>
 
-                    {!! Form::open(['route' => ['admin.groups.destroy', $dataGroup], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['admin.articles.destroy', $article], 'method' => 'delete']) !!}
 
 
-                    <a href="{{ route('admin.groups.inactivate', $dataGroup) }}" class="btn btn-danger">Eliminar
+                    <a href="{{ route('admin.articles.inactivate', $article) }}" class="btn btn-danger">Eliminar
                     </a>
 
 
-                    <a href="{{ route('admin.groups.index') }}" class="btn btn-primary mx-2">Cancelar</a>
+                    <a href="{{ route('admin.articles.index') }}" class="btn btn-primary mx-2">Cancelar</a>
 
                     {{-- 
                     {!! Form::submit('Eliminar Permanentemente', ['class' => 'btn btn-danger']) !!}

@@ -40,8 +40,10 @@ Route::get("/groups/inactive", [GroupController::class, 'inactive'])->middleware
 
 Route::get("/groups/inactivate/{department}", [GroupController::class, 'inactivate'])->middleware(['auth', 'verified'])->name('admin.groups.inactivate');
 
-
+Route::get("groups/pdf/list", [GroupController::class, "pdfList"])->middleware(['auth', 'verified'])->name("admin.groups.pdf.list");
 Route::get("/group/activate/{group}", [GroupController::class, 'activate'])->middleware(['auth', 'verified'])->name('admin.groups.activate');
+
+
 
 
 
@@ -60,7 +62,7 @@ Route::get("/articles/inactive", [ArticleController::class, 'inactive'])->middle
 
 
 Route::get("/articles/inactivate/{department}", [ArticleController::class, 'inactivate'])->middleware(['auth', 'verified'])->name('admin.articles.inactivate');
-
+Route::get("/articles/pdf/list", [ArticleController::class, "pdfList"])->middleware(['auth', 'verified'])->name("admin.articles.pdf.list");
 
 Route::get("/articles/activate/{group}", [ArticleController::class, 'activate'])->middleware(['auth', 'verified'])->name('admin.articles.activate');
 

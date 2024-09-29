@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <h4 class="text-info">Lista de los artículos</h4>
+    <h4 class="text-danger">Lista de los artículos Inactivos</h4>
     {{-- 
  @livewire('employee.employee-index')
  --}}
@@ -38,10 +38,7 @@
                                 <th>Cod</th>
 
 
-                                <th>Cantidad Actual</th>
-                                <th>Precio Unitario</th>
 
-                                <th>Valor Total</th>
 
 
 
@@ -49,13 +46,7 @@
 
 
                                 <th>Estado</th>
-                                <th class="text-info">Ver más</th>
-
-
-                                <th class="text-primary">Editar</th>
-
-
-                                <th class="text-danger">Eliminar</th>
+                                <th class="text-info">Reestablecer</th>
 
 
 
@@ -73,15 +64,11 @@
 
                                     <td>{{ $article->cod }}</td>
 
-                                    <td>{{ $article->cantidad_actual }}</td>
-
-                                    <td>{{ $article->precio_unitario }}</td>
-                                    <td>{{ $article->valor_total }}</td>
 
 
 
                                     <td>
-                                        <b class="text-success">Activo</b>
+                                        <b class="text-danger">Inactivo</b>
                                     </td>
 
 
@@ -89,26 +76,13 @@
                                     <td>
 
                                         <a class="btn btn-info btn-sm m-1"
-                                            href="{{ route('admin.articles.show', $article) }}"><i
+                                            href="{{ route('admin.articles.activate', $article) }}"><i
                                                 class="fas fa-edit"></i></a>
 
                                     </td>
 
 
-                                    <td>
 
-                                        <a class="btn btn-primary btn-sm m-1"
-                                            href="{{ route('admin.articles.edit', $article) }}"><i
-                                                class="fas fa-edit"></i></a>
-
-                                    </td>
-
-                                    <td>
-
-                                        <a href="{{ route('admin.articles.viewConfirmDelete', $article->id) }}"
-                                            class="btn btn-danger btn-sm  m-1"> <i class="fas fa-trash-alt"></i> </a>
-
-                                    </td>
 
 
                                 </tr>
@@ -122,10 +96,7 @@
                                 <th>Cod</th>
 
 
-                                <th>Cantidad Actual</th>
-                                <th>Precio Unitario</th>
 
-                                <th>Valor Total</th>
 
 
 
@@ -133,13 +104,8 @@
 
 
                                 <th>Estado</th>
-                                <th class="text-info">Ver más</th>
+                                <th class="text-info">Reestablecer</th>
 
-
-                                <th class="text-primary">Editar</th>
-
-
-                                <th class="text-danger">Eliminar</th>
 
 
 
