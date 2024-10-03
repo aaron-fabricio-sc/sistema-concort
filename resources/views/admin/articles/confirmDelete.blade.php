@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <h4 class="title_view">Eliminar el Artículo</h4>
+    <h4 class="title_view text-danger">Eliminar el Artículo</h4>
     <div class="card fondo-card">
         <div class="card-body">
 

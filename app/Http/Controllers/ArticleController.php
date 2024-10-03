@@ -111,11 +111,13 @@ class ArticleController extends Controller
     {
         //
 
+
+
         $request->validate([
             'nombre' => 'required',
             'descripcion' => 'required',
             'cod' => 'required',
-            'cantidad_inicial' => 'required',
+
             'precio_unitario' => 'required',
             'group_id' => 'required',
         ]);
@@ -124,11 +126,12 @@ class ArticleController extends Controller
             $article->nombre = $request->nombre;
             $article->descripcion = $request->descripcion;
             $article->cod = $request->cod;
-            $article->cantidad_inicial = $request->cantidad_inicial;
-            $article->cantidad_actual = $request->cantidad_inicial; // Corrige el nombre del campo
+
+
             $article->precio_unitario = $request->precio_unitario;
 
-            $total = $request->cantidad_inicial * $request->precio_unitario;
+            $total = $article->cantidad_actual * $request->precio_unitario;
+
             $article->valor_total = $total;
             $article->group_id = $request->group_id;
 
@@ -136,6 +139,7 @@ class ArticleController extends Controller
 
             return redirect()->route("admin.articles.index")->with("message", "Se actualizó el Artículo correctamente");
         } catch (QueryException $e) {
+            return "asdsadsa";
             if ($e->errorInfo[1] == 1062) {
                 return redirect()->route("admin.articles.edit", $article->id)->with("message-danger", "El código del artículo ya existe.");
             }
