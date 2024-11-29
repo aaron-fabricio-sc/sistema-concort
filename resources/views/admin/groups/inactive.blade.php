@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <h4 class="text-info">Lista de los grupos inactivos</h4>
+    <h4 class="text-danger">Lista de los grupos inactivos</h4>
     {{-- 
  @livewire('employee.employee-index')
  --}}

@@ -233,8 +233,8 @@
             <p>EMAIL : {{ $settings->company_email }}</p> --}}
 
             <p class="title">Cormoran </p>
-            <p>"Mesage de la empresa"</p>
-            <p>"Direccion de la empresa"</p>
+            <p>"Mensaje de la empresa"</p>
+            <p>"Dirección de la empresa"</p>
 
             <p>CEL : ***</p>
             <p>EMAIL :****</p>
