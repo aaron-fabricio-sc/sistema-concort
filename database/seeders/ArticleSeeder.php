@@ -33,6 +33,7 @@ class ArticleSeeder extends Seeder
         $table->tinyInteger("status")->default(1); */
         $article1 = new Article();
         $article1->nombre = 'Cemento';
+        $article1->tipo_medida = 'bolsa';
         $article1->descripcion = 'Material de construcción hecho a base de cemento, arena y gravas o piedras.';
         $article1->cod = '001';
         $article1->cantidad_inicial = 100;

@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Cormoran')
+@section('title', 'Detalles de envio')
 
 @section('content_header')
-    <h1>Administrador para Artículos.</h1>
+    <h1>Detalles de envio.</h1>
 @stop
 
 @section('content')
-    <h4 class="text-info">Lista de los artículos</h4>
+    <h4 class="text-info">Lista de Envios</h4>
     {{-- 
  @livewire('employee.employee-index')
  --}}
@@ -27,40 +27,27 @@
 
             <div class="card-blue">
 
-                @include('admin.articles.partials.nav')
+                @include('admin.details.partials.nav')
 
                 <div class="table-responsive">
                     <table class="table table-striped" id="employees">
                         <thead>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Descripción</th>
-                                <th>Grupo</th>
+                                <th>Articulo</th>
+                                <th>Cantidad</th>
 
-                                <th>Tipo de medida</th>
-
-                                <th>Cod</th>
-
-
-                                <th>Cantidad Actual</th>
-                                <th>Precio Unitario</th>
-
-                                <th>Valor Total</th>
+                                <th>Detalle</th>
+                                <th>Fecha de Registro</th>
 
 
 
 
-
-
-                                <th>Estado</th>
-                                <th class="text-info">Ver más</th>
-
-
+                                {{-- 
                                 <th class="text-primary">Editar</th>
 
 
                                 <th class="text-danger">Eliminar</th>
-
+ --}}
 
 
 
@@ -70,54 +57,35 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($dataArticle as $article)
+                            @foreach ($details as $detail)
                                 <tr>
-                                    <td>{{ $article->nombre }}</td>
-                                    <td>{{ $article->descripcion }}</td>
-                                    <td>{{ $article->group->name }}</td>
-
-                                    <td>{{ $article->tipo_medida }}</td>
-
-
-                                    <td>{{ $article->cod }}</td>
-
-                                    <td>{{ $article->cantidad_actual }}</td>
-
-                                    <td>{{ $article->precio_unitario }}</td>
-                                    <td>{{ $article->valor_total }}</td>
+                                    <td>{{ $detail->article->name }}</td>
+                                    <td>{{ $detail->cantidad }}</td>
+                                    <td>{{ $detail->detalle }}</td>
+                                    <td>{{ $detail->created_at }}</td>
 
 
 
-                                    <td>
-                                        <b class="text-success">Activo</b>
-                                    </td>
 
 
 
-                                    <td>
-
-                                        <a class="btn btn-info btn-sm m-1"
-                                            href="{{ route('admin.articles.show', $article) }}"><i
-                                                class="fas fa-edit"></i></a>
-
-                                    </td>
 
 
-                                    <td>
+
+                                    {{--   <td>
 
                                         <a class="btn btn-primary btn-sm m-1"
-                                            href="{{ route('admin.articles.edit', $article) }}"><i
-                                                class="fas fa-edit"></i></a>
+                                            href="{{ route('admin.groups.edit', $detail) }}"><i class="fas fa-edit"></i></a>
 
                                     </td>
 
                                     <td>
 
-                                        <a href="{{ route('admin.articles.viewConfirmDelete', $article->id) }}"
+                                        <a href="{{ route('admin.groups.viewConfirmDelete', $detail->id) }}"
                                             class="btn btn-danger btn-sm  m-1"> <i class="fas fa-trash-alt"></i> </a>
 
                                     </td>
-
+ --}}
 
                                 </tr>
                             @endforeach
@@ -125,34 +93,20 @@
 
                         <tfoot>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Descripción</th>
-                                <th>Grupo</th>
+                                <th>Articulo</th>
+                                <th>Cantidad</th>
 
-                                <th>Tipo de medida</th>
+                                <th>Detalle</th>
 
-                                <th>Cod</th>
-
-
-                                <th>Cantidad Actual</th>
-                                <th>Precio Unitario</th>
-
-                                <th>Valor Total</th>
+                                <th>Fecha de Registro</th>
 
 
 
-
-
-
-                                <th>Estado</th>
-                                <th class="text-info">Ver más</th>
-
-
+                                {{-- 
                                 <th class="text-primary">Editar</th>
 
-
                                 <th class="text-danger">Eliminar</th>
-
+ --}}
 
 
                             </tr>

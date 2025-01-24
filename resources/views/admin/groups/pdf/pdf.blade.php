@@ -233,11 +233,11 @@
             <p>EMAIL : {{ $settings->company_email }}</p> --}}
 
             <p class="title">Cormoran </p>
-            <p>"Mensaje de la empresa"</p>
-            <p>"Dirección de la empresa"</p>
 
-            <p>CEL : ***</p>
-            <p>EMAIL :****</p>
+            <p>Dirección: Zona los Andes, calle Arzabe, #100, oficina 10.</p>
+
+            <p>CEL : 73552904</p>
+            <p>EMAIL :beluzxleoo@gmail.com</p>
         </div>
 
 

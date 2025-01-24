@@ -29,11 +29,24 @@ class ArticleController extends Controller
     {
         //
 
+        $medidas = [
+            'bolsa' => 'Bolsa',
+            'cubo' => 'Cubo',
+            'metro_cubico' => 'Metro cúbico',
+            'litro' => 'Litro',
+            'kilogramo' => 'Kilogramo',
+            'tonelada' => 'Tonelada',
+            'pieza' => 'Pieza',
+            'metro_lineal' => 'Metro lineal',
+            'paquete' => 'Paquete',
+            'caja' => 'Caja'
+        ];
+
         $group = Group::where("status", '1')->pluck("name", 'id');
 
 
 
-        return view('admin.articles.create', compact("group"));
+        return view('admin.articles.create', compact("group", "medidas"));
     }
 
     /**
@@ -58,6 +71,7 @@ class ArticleController extends Controller
             $article = new Article();
             $article->nombre = $request->nombre;
             $article->descripcion = $request->descripcion;
+            $article->tipo_medida = $request->tipo_medida;
             $article->cod = $request->cod;
             $article->cantidad_inicial = $request->cantidad_inicial;
             $article->cantidad_actual = $request->cantidad_inicial; // Corrige el nombre del campo
@@ -98,10 +112,22 @@ class ArticleController extends Controller
     public function edit(Article $article)
     {
         //
+        $medidas = [
+            'bolsa' => 'Bolsa',
+            'cubo' => 'Cubo',
+            'metro_cubico' => 'Metro cúbico',
+            'litro' => 'Litro',
+            'kilogramo' => 'Kilogramo',
+            'tonelada' => 'Tonelada',
+            'pieza' => 'Pieza',
+            'metro_lineal' => 'Metro lineal',
+            'paquete' => 'Paquete',
+            'caja' => 'Caja'
+        ];
 
         $group = Group::where("status", '1')->pluck("name", 'id');
 
-        return view('admin.articles.edit', compact("article", "group"));
+        return view('admin.articles.edit', compact("article", "group", "medidas"));
     }
 
     /**
@@ -126,11 +152,13 @@ class ArticleController extends Controller
             $article->nombre = $request->nombre;
             $article->descripcion = $request->descripcion;
             $article->cod = $request->cod;
+            $article->tipo_medida = $request->tipo_medida;
 
 
             $article->precio_unitario = $request->precio_unitario;
+            $article->cantidad_actual = $request->cantidad_actual;
 
-            $total = $article->cantidad_actual * $request->precio_unitario;
+            $total = $request->cantidad_actual * $article->precio_unitario;
 
             $article->valor_total = $total;
             $article->group_id = $request->group_id;
@@ -139,7 +167,7 @@ class ArticleController extends Controller
 
             return redirect()->route("admin.articles.index")->with("message", "Se actualizó el Artículo correctamente");
         } catch (QueryException $e) {
-            return "asdsadsa";
+
             if ($e->errorInfo[1] == 1062) {
                 return redirect()->route("admin.articles.edit", $article->id)->with("message-danger", "El código del artículo ya existe.");
             }

@@ -1,3 +1,8 @@
+@php
+    use Illuminate\Support\Facades\DB;
+    use App\Models\Article;
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -248,22 +253,20 @@
 
     <div class="container">
 
-        <h1>Articulos Activos</h1>
+        <h1>Lista de los envios</h1>
         <table>
             <thead>
                 <tr>
 
-                    <th>Nombre</th>
+                    <th>Articulo</th>
 
 
-                    <th>Tipo de medida</th>
-                    <th>Cantidad inicial</th>
-                    <th>Cantidad actual</th>
-                    <th>Precio unitario</th>
-                    <th>Valor total</th>
+                    <th>Cantidad</th>
+                    <th>Detalles</th>
 
 
-                    <th>Fecha Creada</th>
+
+                    <th>Fecha de registro</th>
 
 
                 </tr>
@@ -275,14 +278,16 @@
             <tbody>
                 @foreach ($actives as $active)
                     <tr>
+                        @php
+                            $article = Article::find($active->article_id);
+                        @endphp
 
-                        <td>{{ $active->nombre }}</td>
 
-                        <td>{{ $active->tipo_medida }}</td>
-                        <td>{{ $active->cantidad_inicial }}</td>
-                        <td>{{ $active->cantidad_actual }}</td>
-                        <td>{{ $active->precio_unitario }}</td>
-                        <td>{{ $active->valor_total }}</td>
+
+
+                        <td>{{ $article->nombre }}</td>
+                        <td>{{ $active->cantidad }}</td>
+                        <td>{{ $active->detalle }}</td>
 
 
 
@@ -307,62 +312,6 @@
 
     <div class="page-break"></div>
 
-    <div class="container">
-
-        <h1>Articulos Inactivos</h1>
-        <table>
-            <thead>
-                <tr>
-
-                    <th>Nombre</th>
-
-
-                    <th>Tipo de medida</th>
-                    <th>Cantidad inicial</th>
-                    <th>Cantidad actual</th>
-                    <th>Precio unitario</th>
-                    <th>Valor total</th>
-
-
-                    <th>Fecha Creada</th>
-                </tr>
-
-
-
-
-            </thead>
-            <tbody>
-                @foreach ($inactives as $inactive)
-                    <tr>
-
-                        <td>{{ $inactive->nombre }}</td>
-
-                        <td>{{ $inactive->tipo_medida }}</td>
-                        <td>{{ $inactive->cantidad_inicial }}</td>
-                        <td>{{ $inactive->cantidad_actual }}</td>
-                        <td>{{ $inactive->precio_unitario }}</td>
-                        <td>{{ $inactive->valor_total }}</td>
-
-
-
-                        @php
-                            $dateActive = $inactive->created_at;
-
-                            $newDateActive = date('d-m-Y H:i:s', strtotime($dateActive));
-
-                        @endphp
-
-                        <td class="dates">{{ $newDateActive }}</td>
-
-
-
-                    </tr>
-                @endforeach
-
-            </tbody>
-
-        </table>
-    </div>
 
 
 </body>

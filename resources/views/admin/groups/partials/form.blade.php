@@ -2,7 +2,7 @@
     {!! Form::label('name', 'Nombre: ') !!}
     {!! Form::text('name', null, [
         'class' => 'form-control w-50',
-        'placeholder' => 'ingrese el nombre del departamento',
+        'placeholder' => 'ingrese un nombre',
     ]) !!}
 
     @error('name')

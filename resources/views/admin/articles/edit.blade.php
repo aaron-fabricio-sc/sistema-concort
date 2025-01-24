@@ -29,7 +29,7 @@
                 {!! Form::label('nombre', 'Nombre: ') !!}
                 {!! Form::text('nombre', null, [
                     'class' => 'form-control w-50',
-                    'placeholder' => 'ingrese el nombre del departamento',
+                    'placeholder' => 'ingrese un nombre',
                 ]) !!}
 
                 @error('nombre')
@@ -37,7 +37,13 @@
                 @enderror
             </div>
 
-
+            <div class="form-group">
+                {!! Form::label('tipo_medida', 'Tipo de medida: ') !!}
+                {!! Form::select('tipo_medida', $medidas, null, ['class' => 'w-50 form-control']) !!}
+                @error('tipo_medida')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
             <div class="form-group">
                 {!! Form::label('cod', 'Código: ') !!}
                 {!! Form::text('cod', null, [
@@ -49,19 +55,19 @@
                 @enderror
             </div>
 
-            {{-- 
+
             <div class="form-group">
-                {!! Form::label('cantidad_inicial', 'Catidad Inicial: ') !!}
-                {!! Form::number('cantidad_inicial', null, [
+                {!! Form::label('cantidad_actual', 'Catidad Actual: ') !!}
+                {!! Form::number('cantidad_actual', null, [
                     'class' => 'w-50 form-control',
-                    'placeholder' => 'ingrese un código',
+                    'placeholder' => 'Cantidad actual',
                 ]) !!}
-                @error('cantidad_inicial')
+                @error('cantidad_actual')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
 
- --}}
+
 
             <div class="form-group">
                 {!! Form::label('precio_unitario', 'Precio Unitario: ') !!}

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GroupController;
@@ -67,5 +68,10 @@ Route::get("/articles/pdf/list", [ArticleController::class, "pdfList"])->middlew
 Route::get("/articles/activate/{group}", [ArticleController::class, 'activate'])->middleware(['auth', 'verified'])->name('admin.articles.activate');
 
 Route::resource("/articles", ArticleController::class)->middleware(['auth', 'verified'])->names('admin.articles');
+
+
+
+Route::get("/details/pdf/list", [DetailController::class, "pdfList"])->middleware(['auth', 'verified'])->name("admin.details.pdf.list");
+Route::resource("/details", DetailController::class)->middleware(['auth', 'verified'])->names('admin.details');
 
 require __DIR__ . '/auth.php';

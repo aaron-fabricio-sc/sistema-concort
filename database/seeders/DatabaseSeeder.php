@@ -5,6 +5,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Detail;
 use App\Models\Group;
 use Illuminate\Database\Seeder;
 use App\Models\User;
@@ -24,8 +25,8 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         User::create([
-            "name" => 'aaron',
-            "email" => 'aaron@aaron.com',
+            "name" => 'beatris',
+            "email" => 'beatris@beatris.com',
             "password" => bcrypt(123456)
         ]);
 

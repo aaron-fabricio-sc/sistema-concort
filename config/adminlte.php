@@ -376,6 +376,29 @@ return [
 
             ],
         ],
+        [
+            'text' => 'DETALLES DE ENVIO',
+            'icon' => 'fas fa-fw fa-share',
+            'submenu' => [
+
+
+                [
+                    'text'    => 'Envios',
+                    'icon'    => 'fas fa-fw fa-keyboard',
+                    'route'     => 'admin.details.index',
+
+                ],
+                [
+                    'text'    => 'Crear Envio',
+                    'icon'    => 'fas fa-fw fa-keyboard',
+                    'route'     => 'admin.details.create',
+
+                ],
+
+
+
+            ],
+        ],
 
     ],
 
