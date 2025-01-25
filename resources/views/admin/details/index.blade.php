@@ -1,3 +1,7 @@
+@php
+    use Illuminate\Support\Facades\DB;
+    use App\Models\Article;
+@endphp
 @extends('adminlte::page')
 
 @section('title', 'Detalles de envio')
@@ -58,8 +62,11 @@
                         </thead>
                         <tbody>
                             @foreach ($details as $detail)
+                                @php
+                                    $article = Article::find($detail->article_id);
+                                @endphp
                                 <tr>
-                                    <td>{{ $detail->article->name }}</td>
+                                    <td>{{ $article->nombre }}</td>
                                     <td>{{ $detail->cantidad }}</td>
                                     <td>{{ $detail->detalle }}</td>
                                     <td>{{ $detail->created_at }}</td>
