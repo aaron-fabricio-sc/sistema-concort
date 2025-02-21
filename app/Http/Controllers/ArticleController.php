@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Group;
+use App\Models\purchasingDetails;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -156,9 +157,9 @@ class ArticleController extends Controller
 
 
             $article->precio_unitario = $request->precio_unitario;
-            $article->cantidad_actual = $request->cantidad_actual;
 
-            $total = $request->cantidad_actual * $article->precio_unitario;
+
+            $total = $article->cantidad_actual * $article->precio_unitario;
 
             $article->valor_total = $total;
             $article->group_id = $request->group_id;
@@ -213,6 +214,36 @@ class ArticleController extends Controller
 
         return redirect()->route("admin.articles.index")->with("message", "Se reestablecio el Artículo.");
     }
+
+
+    public function updateCantidad(Request $request, $id,)
+    {
+        $article = Article::find($id);
+        $purchanseDetails = new purchasingDetails();
+        $agregar_cantidad = $request->agregar_cantidad;
+
+        $article->cantidad_actual = $article->cantidad_actual + $agregar_cantidad;
+
+        $total = $article->cantidad_actual * $article->precio_unitario;
+        $article->valor_total = $total;
+
+        $purchanseDetails->article_id = $article->id;
+        $purchanseDetails->cantidad = $agregar_cantidad;
+        $purchanseDetails->precio_unitario = $article->precio_unitario;
+        $purchanseDetails->precio_total = $agregar_cantidad * $article->precio_unitario;
+
+
+
+
+        $article->save();
+
+        $purchanseDetails->save();
+
+
+        return redirect()->route("admin.articles.edit", $article->id)->with("message", "Se actualizó la cantidad del Artículo correctamente");
+        //return view('admin.articles.updateCantidad', compact("article"));
+    }
+
 
     public function pdfList()
     {

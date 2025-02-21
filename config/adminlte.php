@@ -317,7 +317,34 @@ return [
         ],
 
 
+        [
+            'text' => 'PROYECTOS',
+            'icon' => 'fas fa-fw fa-share',
+            'submenu' => [
 
+                [
+                    'text'    => 'Crear Proyecto',
+                    'icon'    => 'fas fa-fw fa-list',
+                    'route'     => 'admin.projects.create',
+
+
+                ],
+                [
+                    'text'    => 'Proyectos',
+                    'icon'    => 'fas fa-fw fa-keyboard',
+                    'route'     => 'admin.projects.index',
+
+                ],
+                [
+                    'text'    => 'Lista de Proyectos inactivas',
+                    'icon'    => 'fas fa-fw fa-stream',
+                    'route'     => 'admin.projects.inactive',
+
+                ],
+
+
+            ],
+        ],
 
         [
             'text' => 'GRUPOS',

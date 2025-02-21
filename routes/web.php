@@ -5,7 +5,11 @@ use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\PurchasingDetailsController;
 use App\Models\Article;
+use App\Models\Project;
+use App\Models\purchasingDetails;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,9 +50,6 @@ Route::get("/group/activate/{group}", [GroupController::class, 'activate'])->mid
 
 
 
-
-
-
 Route::resource("/groups", GroupController::class)->middleware(['auth', 'verified'])->names('admin.groups');
 
 
@@ -65,6 +66,8 @@ Route::get("/articles/inactive", [ArticleController::class, 'inactive'])->middle
 Route::get("/articles/inactivate/{department}", [ArticleController::class, 'inactivate'])->middleware(['auth', 'verified'])->name('admin.articles.inactivate');
 Route::get("/articles/pdf/list", [ArticleController::class, "pdfList"])->middleware(['auth', 'verified'])->name("admin.articles.pdf.list");
 
+Route::put("/articless/updateCantidad/{group}", [ArticleController::class, 'updateCantidad'])->middleware(['auth', 'verified'])->name('admin.articles.updateCantidad');
+
 Route::get("/articles/activate/{group}", [ArticleController::class, 'activate'])->middleware(['auth', 'verified'])->name('admin.articles.activate');
 
 Route::resource("/articles", ArticleController::class)->middleware(['auth', 'verified'])->names('admin.articles');
@@ -73,5 +76,29 @@ Route::resource("/articles", ArticleController::class)->middleware(['auth', 'ver
 
 Route::get("/details/pdf/list", [DetailController::class, "pdfList"])->middleware(['auth', 'verified'])->name("admin.details.pdf.list");
 Route::resource("/details", DetailController::class)->middleware(['auth', 'verified'])->names('admin.details');
+
+
+
+
+
+
+Route::get("/purchasingDetails/pdf/{id}", [PurchasingDetailsController::class, "pdf"])->middleware(['auth', 'verified'])->name("admin.purchasingDetails.pdf");
+Route::resource("/purchasingDetails", PurchasingDetailsController::class)->middleware(['auth', 'verified'])->names('admin.purchasingDetails');
+
+
+
+
+
+Route::get("/projects/viewConfirmDelete/{id}", [Project::class, "viewConfirmDelete"])->middleware(['auth', 'verified'])->name("admin.projects.viewConfirmDelete");
+
+
+Route::get("/proyects/inactive", [ProjectController::class, 'inactive'])->middleware(['auth', 'verified'])->name('admin.projects.inactive');
+
+Route::get("/proyects/pdf/list", [ProjectController::class, "pdfList"])->middleware(['auth', 'verified'])->name("admin.projects.pdf.list");
+
+
+Route::resource("/projects", ProjectController::class)->middleware(['auth', 'verified'])->names('admin.projects');
+
+
 
 require __DIR__ . '/auth.php';

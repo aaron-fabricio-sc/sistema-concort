@@ -21,10 +21,71 @@
         @endif
 
         <div class="card-body overley">
-
             @include('admin.articles.partials.nav')
-            {!! Form::model($article, ['route' => ['admin.articles.update', $article], 'method' => 'put']) !!}
+            {!! Form::model($article, ['route' => ['admin.articles.updateCantidad', $article], 'method' => 'put']) !!}
 
+            <h3>
+                Actualizar Cantidad
+            </h3>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 20px; align-items: center;">
+                <div class="form-group">
+                    {!! Form::label('cantidad_actual', 'Cantidad Actual: ') !!}
+                    {!! Form::number('cantidad_actual', null, [
+                        'class' => 'w-100 form-control',
+                        'placeholder' => 'Cantidad actual',
+                        'disabled' => 'true',
+                        'id' => 'cantidad_actual',
+                    ]) !!}
+                    @error('cantidad_actual')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('agregar_cantidad', 'Agregar Cantidad: ') !!}
+                    {!! Form::number('agregar_cantidad', null, [
+                        'class' => 'w-100 form-control',
+                        'placeholder' => 'Agregar cantidad',
+                        'id' => 'agregar_cantidad',
+                    ]) !!}
+                    @error('agregar_cantidad')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('nueva_cantidad', 'Nueva Cantidad: ') !!}
+                    {!! Form::number('nueva_cantidad', null, [
+                        'class' => 'w-100 form-control',
+                        'placeholder' => 'Nueva cantidad',
+                        'disabled' => 'true',
+                        'id' => 'nueva_cantidad',
+                    ]) !!}
+                    @error('nueva_cantidad')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    {!! Form::submit('Actualizar Cantidad', ['class' => 'btn btn-primary']) !!}
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+            {!! Form::close() !!}
+
+
+            {!! Form::model($article, ['route' => ['admin.articles.update', $article], 'method' => 'put']) !!}
+            <h3>
+                Actualizar Datos
+            </h3>
             <div class="form-group">
                 {!! Form::label('nombre', 'Nombre: ') !!}
                 {!! Form::text('nombre', null, [
@@ -56,16 +117,6 @@
             </div>
 
 
-            <div class="form-group">
-                {!! Form::label('cantidad_actual', 'Catidad Actual: ') !!}
-                {!! Form::number('cantidad_actual', null, [
-                    'class' => 'w-50 form-control',
-                    'placeholder' => 'Cantidad actual',
-                ]) !!}
-                @error('cantidad_actual')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
 
 
 
@@ -123,11 +174,23 @@
     <script src="{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}"></script>
     <script>
         $(document).ready(function() {
-            $("#name").stringToSlug({
-                setEvents: 'keyup keydown blur',
-                getPut: '#slug',
-                space: '-'
+
+
+            // Función para actualizar la nueva cantidad
+            function updateNuevaCantidad() {
+                var cantidadActual = parseFloat($('#cantidad_actual').val()) || 0;
+                var agregarCantidad = parseFloat($('#agregar_cantidad').val()) || 0;
+                var nuevaCantidad = cantidadActual + agregarCantidad;
+                $('#nueva_cantidad').val(nuevaCantidad);
+            }
+
+            // Escuchar cambios en los inputs
+            $('#agregar_cantidad').on('input', function() {
+                updateNuevaCantidad();
             });
+
+            // Inicializar la nueva cantidad al cargar la página
+            updateNuevaCantidad();
         });
     </script>
 @stop

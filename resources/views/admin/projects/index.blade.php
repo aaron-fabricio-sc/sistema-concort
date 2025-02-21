@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Cormoran')
+@section('title', 'Lista de grupos')
 
 @section('content_header')
-    <h1>Administrador para Artículos.</h1>
+    <h1>Administrador de proyectos.</h1>
 @stop
 
 @section('content')
-    <h4 class="text-info">Lista de los artículos</h4>
+    <h4 class="text-info">Lista de los proyectos</h4>
     {{-- 
  @livewire('employee.employee-index')
  --}}
@@ -27,92 +27,63 @@
 
             <div class="card-blue">
 
-                @include('admin.articles.partials.nav')
+                @include('admin.projects.partials.nav')
 
                 <div class="table-responsive">
                     <table class="table table-striped" id="employees">
                         <thead>
                             <tr>
-                                <th>Nombre</th>
+                                <th>Nombre de la empresa</th>
+                                <th>Nombre del proyecto</th>
                                 <th>Descripción</th>
-                                <th>Grupo</th>
-
-                                <th>Tipo de medida</th>
-
-                                <th>Cod</th>
-
-
-                                <th>Cantidad Actual</th>
-                                <th>Precio Unitario</th>
-
-                                <th>Valor Total</th>
-
-
+                                <th>Fecha de inicio</th>
+                                <th>Fecha de fin</th>
                                 <th>Estado</th>
-                                <th class="text-info">Ver más</th>
+                                <th>Cantidad de Materiales</th>
+
+                                <th>Presupuesto Total</th>
+
 
 
                                 <th class="text-primary">Editar</th>
-                                <th class="text-primary">Ver Entradas</th>
-
 
 
                                 <th class="text-danger">Eliminar</th>
 
 
+
+
+
+
+
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($dataArticle as $article)
+                            @foreach ($projects as $project)
                                 <tr>
-                                    <td>{{ $article->nombre }}</td>
-                                    <td>{{ $article->descripcion }}</td>
-                                    <td>{{ $article->group->name }}</td>
+                                    <td>{{ $project->nombre_empresa }}</td>
+                                    <td>{{ $project->nombre_proyecto }}</td>
+                                    <td>{{ $project->descripcion }}</td>
+                                    <td>{{ $project->fecha_inicio }}</td>
+                                    <td>{{ $project->fecha_fin }}</td>
 
-                                    <td>{{ $article->tipo_medida }}</td>
+                                    <td>{{ $project->estado }}</td>
 
-
-                                    <td>{{ $article->cod }}</td>
-
-                                    <td>{{ $article->cantidad_actual }}</td>
-
-                                    <td>{{ $article->precio_unitario }}</td>
-                                    <td>{{ $article->valor_total }}</td>
+                                    <td>{{ $project->cantidad_total_materiales }}</td>
+                                    <td>{{ $project->cantidad_total_precio }}</td>
 
 
-
-                                    <td>
-                                        <b class="text-success">Activo</b>
-                                    </td>
-
-
-
-                                    <td>
-
-                                        <a class="btn btn-info btn-sm m-1"
-                                            href="{{ route('admin.articles.show', $article) }}"><i
-                                                class="fas fa-eye"></i></a>
-
-                                    </td>
                                     <td>
 
                                         <a class="btn btn-primary btn-sm m-1"
-                                            href="{{ route('admin.articles.edit', $article) }}"><i
+                                            href="{{ route('admin.projects.edit', $project) }}"><i
                                                 class="fas fa-edit"></i></a>
 
                                     </td>
 
                                     <td>
 
-                                        <a class="btn btn-primary btn-sm m-1"
-                                            href="{{ route('admin.purchasingDetails.pdf', $article->id) }}"><i
-                                                class="fas fa-eye"></i></a>
-
-                                    </td>
-
-                                    <td>
-
-                                        <a href="{{ route('admin.articles.viewConfirmDelete', $article->id) }}"
+                                        <a href="{{ route('admin.projects.viewConfirmDelete', $project->id) }}"
                                             class="btn btn-danger btn-sm  m-1"> <i class="fas fa-trash-alt"></i> </a>
 
                                     </td>
@@ -124,36 +95,21 @@
 
                         <tfoot>
                             <tr>
-                                <th>Nombre</th>
+                                <th>Nombre de la empresa</th>
+                                <th>Nombre del proyecto</th>
                                 <th>Descripción</th>
-                                <th>Grupo</th>
-
-                                <th>Tipo de medida</th>
-
-                                <th>Cod</th>
-
-
-                                <th>Cantidad Actual</th>
-                                <th>Precio Unitario</th>
-
-                                <th>Valor Total</th>
-
-
-
-
-
-
+                                <th>Fecha de inicio</th>
+                                <th>Fecha de fin</th>
                                 <th>Estado</th>
-                                <th class="text-info">Ver más</th>
+
+                                <th>Presupuesto Total</th>
+
 
 
                                 <th class="text-primary">Editar</th>
 
-                                <th class="text-primary">Ver Entradas</th>
 
                                 <th class="text-danger">Eliminar</th>
-
-
 
                             </tr>
                         </tfoot>

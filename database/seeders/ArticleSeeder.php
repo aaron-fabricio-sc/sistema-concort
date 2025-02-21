@@ -43,5 +43,19 @@ class ArticleSeeder extends Seeder
         $article1->group_id = 1;
         $article1->status = 1;
         $article1->save();
+
+
+        $article2 = new Article();
+        $article2->nombre = 'Arena';
+        $article2->tipo_medida = 'metro_cubico';
+        $article2->descripcion = 'Material de construcción hecho a base de cemento, arena y gravas o piedras.';
+        $article2->cod = '002';
+        $article2->cantidad_inicial = 100;
+        $article2->cantidad_actual = 100;
+        $article2->precio_unitario = 10;
+        $article2->valor_total = 1000;
+        $article2->group_id = 1;
+        $article2->status = 1;
+        $article2->save();
     }
 }
