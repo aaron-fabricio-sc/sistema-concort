@@ -88,13 +88,13 @@ Route::resource("/purchasingDetails", PurchasingDetailsController::class)->middl
 
 
 
+Route::get("/projects/activate/{project}", [ProjectController::class, 'activate'])->middleware(['auth', 'verified'])->name('admin.projects.activate');
+Route::get("/projects/viewConfirmDelete/{id}", [ProjectController::class, "viewConfirmDelete"])->middleware(['auth', 'verified'])->name("admin.projects.viewConfirmDelete");
 
-Route::get("/projects/viewConfirmDelete/{id}", [Project::class, "viewConfirmDelete"])->middleware(['auth', 'verified'])->name("admin.projects.viewConfirmDelete");
 
-
-Route::get("/proyects/inactive", [ProjectController::class, 'inactive'])->middleware(['auth', 'verified'])->name('admin.projects.inactive');
-
-Route::get("/proyects/pdf/list", [ProjectController::class, "pdfList"])->middleware(['auth', 'verified'])->name("admin.projects.pdf.list");
+Route::get("/projects/inactive", [ProjectController::class, 'inactive'])->middleware(['auth', 'verified'])->name('admin.projects.inactive');
+Route::get("/projects/inactivate/{department}", [ProjectController::class, 'inactivate'])->middleware(['auth', 'verified'])->name('admin.projects.inactivate');
+Route::get("/projects/pdf/list", [ProjectController::class, "pdfList"])->middleware(['auth', 'verified'])->name("admin.projects.pdf.list");
 
 
 Route::resource("/projects", ProjectController::class)->middleware(['auth', 'verified'])->names('admin.projects');
