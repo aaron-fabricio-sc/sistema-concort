@@ -32,9 +32,9 @@ class ArticleSeeder extends Seeder
         $table->foreign('group_id')->references('id')->on('groups')->onDelete('set null')->onUpdate('cascade');
         $table->tinyInteger("status")->default(1); */
         $article1 = new Article();
-        $article1->nombre = 'Cemento';
-        $article1->tipo_medida = 'bolsa';
-        $article1->descripcion = 'Material de construcción hecho a base de cemento, arena y gravas o piedras.';
+        $article1->nombre = 'Alambre de amarre';
+        $article1->tipo_medida = 'Kilogramo';
+        $article1->descripcion = 'Material de alambre de acero para amarrar estructuras de concreto.';
         $article1->cod = '001';
         $article1->cantidad_inicial = 100;
         $article1->cantidad_actual = 100;
@@ -46,15 +46,15 @@ class ArticleSeeder extends Seeder
 
 
         $article2 = new Article();
-        $article2->nombre = 'Arena';
-        $article2->tipo_medida = 'metro_cubico';
-        $article2->descripcion = 'Material de construcción hecho a base de cemento, arena y gravas o piedras.';
+        $article2->nombre = 'Arena común';
+        $article2->tipo_medida = 'Metro cúbico';
+        $article2->descripcion = 'Arena común para mezclas de concreto.';
         $article2->cod = '002';
         $article2->cantidad_inicial = 100;
         $article2->cantidad_actual = 100;
-        $article2->precio_unitario = 10;
-        $article2->valor_total = 1000;
-        $article2->group_id = 1;
+        $article2->precio_unitario = 90;
+        $article2->valor_total = 9000;
+        $article2->group_id = 2;
         $article2->status = 1;
         $article2->save();
     }

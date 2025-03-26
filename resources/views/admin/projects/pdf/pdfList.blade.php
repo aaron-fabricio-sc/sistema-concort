@@ -248,22 +248,25 @@
 
     <div class="container">
 
-        <h1>Materiales Activos</h1>
+        <h1>Lista de proyectos</h1>
         <table>
             <thead>
                 <tr>
 
-                    <th>Nombre</th>
+                    <th>Nombre De la empresa</th>
 
 
-                    <th>Tipo de medida</th>
-                    <th>Cantidad inicial</th>
-                    <th>Cantidad actual</th>
-                    <th>Precio unitario</th>
-                    <th>Valor total</th>
+                    <th>Nombre del proyecto</th>
+                    <th>Fecha de inicio</th>
+                    <th>Fecha final</th>
+                    <th>Estado</th>
+                    <th>Cantidad total de Materiales</th>
 
 
-                    <th>Fecha Creada</th>
+                    <th>Precio Total</th>
+                    <th>Presupuesto Inicial</th>
+
+                    <th>Descripción</th>
 
 
                 </tr>
@@ -276,24 +279,22 @@
                 @foreach ($actives as $active)
                     <tr>
 
-                        <td>{{ $active->nombre }}</td>
+                        <td>{{ $active->nombre_empresa }}</td>
 
-                        <td>{{ $active->tipo_medida }}</td>
-                        <td>{{ $active->cantidad_inicial }}</td>
-                        <td>{{ $active->cantidad_actual }}</td>
-                        <td>{{ $active->precio_unitario }}</td>
-                        <td>{{ $active->valor_total }}</td>
+                        <td>{{ $active->nombre_proyecto }}</td>
+                        <td>{{ $active->fecha_inicio }}</td>
+                        <td>{{ $active->fecha_fin }}</td>
+                        <td>{{ $active->estado }}</td>
+                        <td>{{ $active->cantidad_total_materiales }}</td>
 
 
 
-                        @php
-                            $dateActive = $active->created_at;
 
-                            $newDateActive = date('d-m-Y H:i:s', strtotime($dateActive));
 
-                        @endphp
+                        <td class="dates">{{ $active->cantidad_total_precio }}Bs</td>
+                        <td class="dates">{{ $active->presupuesto_inicial }}Bs</td>
 
-                        <td class="dates">{{ $newDateActive }}</td>
+                        <td>{{ $active->descripcion }}</td>
 
 
 
@@ -305,64 +306,7 @@
         </table>
     </div>
 
-    <div class="page-break"></div>
 
-    <div class="container">
-
-        <h1>Materiales Inactivos</h1>
-        <table>
-            <thead>
-                <tr>
-
-                    <th>Nombre</th>
-
-
-                    <th>Tipo de medida</th>
-                    <th>Cantidad inicial</th>
-                    <th>Cantidad actual</th>
-                    <th>Precio unitario</th>
-                    <th>Valor total</th>
-
-
-                    <th>Fecha Creada</th>
-                </tr>
-
-
-
-
-            </thead>
-            <tbody>
-                @foreach ($inactives as $inactive)
-                    <tr>
-
-                        <td>{{ $inactive->nombre }}</td>
-
-                        <td>{{ $inactive->tipo_medida }}</td>
-                        <td>{{ $inactive->cantidad_inicial }}</td>
-                        <td>{{ $inactive->cantidad_actual }}</td>
-                        <td>{{ $inactive->precio_unitario }}</td>
-                        <td>{{ $inactive->valor_total }}</td>
-
-
-
-                        @php
-                            $dateActive = $inactive->created_at;
-
-                            $newDateActive = date('d-m-Y H:i:s', strtotime($dateActive));
-
-                        @endphp
-
-                        <td class="dates">{{ $newDateActive }}</td>
-
-
-
-                    </tr>
-                @endforeach
-
-            </tbody>
-
-        </table>
-    </div>
 
 
 </body>

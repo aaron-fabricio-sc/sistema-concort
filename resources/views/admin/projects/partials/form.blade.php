@@ -42,7 +42,17 @@
         <span class="text-danger">{{ $message }}</span>
     @enderror
 </div>
+<div class="form-group">
+    {!! Form::label('presupuesto_inicial', 'Ingrese el presupuesto inicial: ') !!}
+    {!! Form::number('presupuesto_inicial', null, [
+        'class' => 'form-control w-50',
+        'placeholder' => 'Ingrese el presupuesto inicial',
+    ]) !!}
 
+    @error('presupuesto_inicial')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
 
 
 <div class="form-group">

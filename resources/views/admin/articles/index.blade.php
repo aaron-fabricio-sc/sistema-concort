@@ -3,11 +3,11 @@
 @section('title', 'Cormoran')
 
 @section('content_header')
-    <h1>Administrador para Artículos.</h1>
+    <h1>Administrador para materiales.</h1>
 @stop
 
 @section('content')
-    <h4 class="text-info">Lista de los artículos</h4>
+    <h4 class="text-info">Lista de los materiales</h4>
     {{-- 
  @livewire('employee.employee-index')
  --}}
@@ -37,23 +37,24 @@
                                 <th>Descripción</th>
                                 <th>Grupo</th>
 
-                                <th>Tipo de medida</th>
+
 
                                 <th>Cod</th>
 
 
                                 <th>Cantidad Actual</th>
+                                <th>Tipo de medida</th>
                                 <th>Precio Unitario</th>
 
                                 <th>Valor Total</th>
 
 
-                                <th>Estado</th>
+
                                 <th class="text-info">Ver más</th>
 
 
                                 <th class="text-primary">Editar</th>
-                                <th class="text-primary">Ver Entradas</th>
+                                <th class="text-success">Ver Entradas</th>
 
 
 
@@ -69,21 +70,19 @@
                                     <td>{{ $article->descripcion }}</td>
                                     <td>{{ $article->group->name }}</td>
 
-                                    <td>{{ $article->tipo_medida }}</td>
 
 
                                     <td>{{ $article->cod }}</td>
 
                                     <td>{{ $article->cantidad_actual }}</td>
+                                    <td>{{ $article->tipo_medida }}</td>
 
                                     <td>{{ $article->precio_unitario }}</td>
                                     <td>{{ $article->valor_total }}</td>
 
 
 
-                                    <td>
-                                        <b class="text-success">Activo</b>
-                                    </td>
+
 
 
 
@@ -104,7 +103,7 @@
 
                                     <td>
 
-                                        <a class="btn btn-primary btn-sm m-1"
+                                        <a class="btn btn-success btn-sm m-1"
                                             href="{{ route('admin.purchasingDetails.pdf', $article->id) }}"><i
                                                 class="fas fa-eye"></i></a>
 
@@ -128,12 +127,13 @@
                                 <th>Descripción</th>
                                 <th>Grupo</th>
 
-                                <th>Tipo de medida</th>
 
                                 <th>Cod</th>
 
 
                                 <th>Cantidad Actual</th>
+                                <th>Tipo de medida</th>
+
                                 <th>Precio Unitario</th>
 
                                 <th>Valor Total</th>
@@ -143,13 +143,13 @@
 
 
 
-                                <th>Estado</th>
+
                                 <th class="text-info">Ver más</th>
 
 
                                 <th class="text-primary">Editar</th>
 
-                                <th class="text-primary">Ver Entradas</th>
+                                <th class="text-success">Ver Entradas</th>
 
                                 <th class="text-danger">Eliminar</th>
 

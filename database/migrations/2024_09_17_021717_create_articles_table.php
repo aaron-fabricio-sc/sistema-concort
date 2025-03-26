@@ -17,7 +17,7 @@ return new class extends Migration
 
             $table->longText("descripcion")->nullable();
             $table->string("cod")->nullable()->unique();
-            $table->string("tipo_medida")->nullable()->unique();
+            $table->string("tipo_medida")->nullable();
             $table->integer("cantidad_inicial")->nullable();
             $table->integer("cantidad_actual")->nullable();
             $table->decimal("precio_unitario", 15, 2)->nullable();

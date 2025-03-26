@@ -31,16 +31,16 @@ class ArticleController extends Controller
         //
 
         $medidas = [
-            'bolsa' => 'Bolsa',
-            'cubo' => 'Cubo',
-            'metro_cubico' => 'Metro cúbico',
-            'litro' => 'Litro',
-            'kilogramo' => 'Kilogramo',
-            'tonelada' => 'Tonelada',
-            'pieza' => 'Pieza',
-            'metro_lineal' => 'Metro lineal',
-            'paquete' => 'Paquete',
-            'caja' => 'Caja'
+            'Bolsa' => 'Bolsa',
+            'Cubo' => 'Cubo',
+            'Metro cúbico' => 'Metro cúbico',
+            'Litro' => 'Litro',
+            'Kilogramo' => 'Kilogramo',
+            'Tonelada' => 'Tonelada',
+            'Pieza' => 'Pieza',
+            'Metro lineal' => 'Metro lineal',
+            'Paquete' => 'Paquete',
+            'Caja' => 'Caja'
         ];
 
         $group = Group::where("status", '1')->pluck("name", 'id');
@@ -61,12 +61,10 @@ class ArticleController extends Controller
 
         $request->validate([
             'nombre' => 'required',
-            'descripcion' => 'required',
-            'cod' => 'required',
-            'cantidad_inicial' => 'required',
-            'precio_unitario' => 'required',
-            'group_id' => 'required',
+
         ]);
+
+
 
         try {
             $article = new Article();
@@ -84,10 +82,11 @@ class ArticleController extends Controller
 
             $article->save();
 
+
             return redirect()->route("admin.articles.index")->with("message", "Se creó el Artículo correctamente");
         } catch (QueryException $e) {
             if ($e->errorInfo[1] == 1062) {
-                return redirect()->route("admin.articles.create")->with("message-danger", "El código del artículo ya existe.");
+                return redirect()->route("admin.articles.create")->with("message-danger", "El código del artículo ya existe...............");
             }
             // Manejar otras excepciones si es necesario
             return redirect()->route("admin.articles.create")->with("message-danger", "El código del artículo ya existe.");

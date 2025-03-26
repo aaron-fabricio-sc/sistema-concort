@@ -22,8 +22,9 @@ class ProjectSeeder extends Seeder
             'fecha_inicio' => '2025-02-15',
             'fecha_fin' => '2025-12-31',
             'estado' => 'En progreso',
-            'cantidad_total_materiales' => 100,
-            'cantidad_total_precio' => 50000.00, // Cambiado a decimal
+            'cantidad_total_materiales' => 0,
+            'cantidad_total_precio' => 0.00, // Cambiado a decimal
+            'presupuesto_inicial' => 10000,
         ]);
 
         // Puedes agregar más registros si lo deseas
@@ -34,8 +35,9 @@ class ProjectSeeder extends Seeder
             'fecha_inicio' => '2025-03-01',
             'fecha_fin' => '2025-11-30',
             'estado' => 'Completado',
-            'cantidad_total_materiales' => 200,
-            'cantidad_total_precio' => 100000.00, // Cambiado a decimal
+            'cantidad_total_materiales' => 0,
+            'cantidad_total_precio' => 0.00, // Cambiado a decimal
+            'presupuesto_inicial' => 5000,
         ]);
     }
 }

@@ -3,11 +3,11 @@
 @section('title', 'Cormoran')
 
 @section('content_header')
-    <h1>Administrador para Materiales.</h1>
+    <h1>Administrador de envios.</h1>
 @stop
 
 @section('content')
-    <h4 class="text-danger">Lista de los materiales Inactivos</h4>
+    <h4 class="text-info">Lista de envios de materiales de {{ $project->nombre_proyecto }}</h4>
     {{-- 
  @livewire('employee.employee-index')
  --}}
@@ -27,59 +27,61 @@
 
             <div class="card-blue">
 
-                @include('admin.articles.partials.nav')
+                <div class="d-flex p-3 w-100 justify-evenly ">
+
+
+
+                    <div class="w-50">
+                        <a class="btn btn-primary  btn-sm my-2" href="{{ route('admin.projects.index') }}"><i
+                                class="fas fa-list-alt"><span class="ml-1">Lista de proyectos</span></i></a>
+                    </div>
+
+
+                    <div class="w-50">
+                        <a class="btn btn-info btn-sm  my-2" href="{{ route('admin.envios.pdf.list', $project->id) }}"><i
+                                class="fas fa-user-times"><span class="ml-1">Generar Reporte de Envíos</span></i></a>
+                    </div>
+
+                </div>
+
 
                 <div class="table-responsive">
                     <table class="table table-striped" id="employees">
                         <thead>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Descripción</th>
-                                <th>Cod</th>
+                                <th>ID</th>
 
+                                <th>Nombre del articulo</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
 
-
-
-
-
-
-
-
-                                <th>Estado</th>
-                                <th class="text-info">Reestablecer</th>
-
-
-
-
+                                <th>Fecha de envio</th>
 
 
 
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($dataArticle as $article)
+                            @foreach ($envios as $envio)
                                 <tr>
-                                    <td>{{ $article->nombre }}</td>
-                                    <td>{{ $article->descripcion }}</td>
+                                    <td>{{ $envio->id }}</td>
 
-                                    <td>{{ $article->cod }}</td>
-
-
-
-
-                                    <td>
-                                        <b class="text-danger">Inactivo</b>
-                                    </td>
+                                    <td>{{ $envio->article->nombre }}</td>
+                                    <td>{{ $envio->cantidad }}</td>
+                                    <td>{{ $envio->monto }}</td>
 
 
+                                    @php
+                                        $date = $envio->created_at;
 
-                                    <td>
+                                        $newDateActive = date('d-m-Y', strtotime($date));
 
-                                        <a class="btn btn-info btn-sm m-1"
-                                            href="{{ route('admin.articles.activate', $article) }}"><i
-                                                class="fas fa-edit"></i></a>
+                                    @endphp
 
-                                    </td>
+                                    <td class="dates">{{ $newDateActive }}</td>
+
+
+
 
 
 
@@ -91,20 +93,17 @@
 
                         <tfoot>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Descripción</th>
-                                <th>Cod</th>
+                                <th>ID</th>
+
+                                <th>Nombre del articulo</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+
+                                <th>Fecha de envio</th>
 
 
 
 
-
-
-
-
-
-                                <th>Estado</th>
-                                <th class="text-info">Reestablecer</th>
 
 
 

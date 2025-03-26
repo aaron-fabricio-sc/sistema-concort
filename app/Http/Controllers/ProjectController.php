@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -132,5 +133,17 @@ class ProjectController extends Controller
 
 
         return view("admin.projects.confirmDelete", compact("project"));
+    }
+
+    public function pdfList()
+    {
+
+
+        $actives = Project::where('status', 1)->get();
+        $inactives = Project::where('status', 0)->get();
+        // $settings = Settings::find(1);
+
+        $pdf = Pdf::loadView('admin.projects.pdf.pdfList', compact("actives", "inactives"));
+        return $pdf->stream();
     }
 }

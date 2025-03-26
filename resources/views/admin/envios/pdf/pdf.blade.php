@@ -216,6 +216,12 @@
         table {
             box-sizing: border-box;
         }
+
+        .diferencia {
+            font-size: 20px;
+
+            margin: 5px 0;
+        }
     </style>
 </head>
 
@@ -248,22 +254,48 @@
 
     <div class="container">
 
-        <h1>Materiales Activos</h1>
+        <h1>Envios a la empresa: <b>{{ $project->nombre_empresa }}</b> </h1>
+
+        <p>Presupuesto Inicial: <span class="diferencia"> {{ $project->presupuesto_inicial }}Bs</span></p>
+        <p>Cantidad de dinero invertido en materiales: <span
+                class="diferencia">{{ $project->cantidad_total_precio }}Bs</span></p>
+
+
+        <p>Diferencia del Presupuesto:
+
+            @if ($project->cantidad_total_precio > $project->presupuesto_inicial)
+                <span class="diferencia"> {{ $project->presupuesto_inicial - $project->cantidad_total_precio }}Bs
+                </span>
+            @else
+                <span class="diferencia">
+                    {{ $project->presupuesto_inicial - $project->cantidad_total_precio }}Bs
+                </span>
+            @endif
+        </p>
+        <p>Estado del
+            Presupuesto:
+            @if ($project->presupuesto_inicial > $project->cantidad_total_precio)
+                <span class="diferencia">
+                    Presupuesto No Superado
+                </span>
+            @else
+                <span class="diferencia">
+                    Presupuesto Superado
+                </span>
+            @endif
+        </p>
         <table>
             <thead>
                 <tr>
 
-                    <th>Nombre</th>
+                    <th>Nº</th>
+                    <th>Nombre del material</th>
 
 
-                    <th>Tipo de medida</th>
-                    <th>Cantidad inicial</th>
-                    <th>Cantidad actual</th>
-                    <th>Precio unitario</th>
-                    <th>Valor total</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Fecha de envio</th>
 
-
-                    <th>Fecha Creada</th>
 
 
                 </tr>
@@ -273,23 +305,21 @@
 
             </thead>
             <tbody>
-                @foreach ($actives as $active)
+                @foreach ($envios as $envio)
                     <tr>
 
-                        <td>{{ $active->nombre }}</td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $envio->article->nombre }}</td>
 
-                        <td>{{ $active->tipo_medida }}</td>
-                        <td>{{ $active->cantidad_inicial }}</td>
-                        <td>{{ $active->cantidad_actual }}</td>
-                        <td>{{ $active->precio_unitario }}</td>
-                        <td>{{ $active->valor_total }}</td>
+                        <td>{{ $envio->cantidad }}</td>
+                        <td>{{ $envio->monto }}</td>
 
 
 
                         @php
-                            $dateActive = $active->created_at;
+                            $dateActive = $envio->created_at;
 
-                            $newDateActive = date('d-m-Y H:i:s', strtotime($dateActive));
+                            $newDateActive = date('d-m-Y', strtotime($dateActive));
 
                         @endphp
 
@@ -305,64 +335,8 @@
         </table>
     </div>
 
-    <div class="page-break"></div>
-
-    <div class="container">
-
-        <h1>Materiales Inactivos</h1>
-        <table>
-            <thead>
-                <tr>
-
-                    <th>Nombre</th>
 
 
-                    <th>Tipo de medida</th>
-                    <th>Cantidad inicial</th>
-                    <th>Cantidad actual</th>
-                    <th>Precio unitario</th>
-                    <th>Valor total</th>
-
-
-                    <th>Fecha Creada</th>
-                </tr>
-
-
-
-
-            </thead>
-            <tbody>
-                @foreach ($inactives as $inactive)
-                    <tr>
-
-                        <td>{{ $inactive->nombre }}</td>
-
-                        <td>{{ $inactive->tipo_medida }}</td>
-                        <td>{{ $inactive->cantidad_inicial }}</td>
-                        <td>{{ $inactive->cantidad_actual }}</td>
-                        <td>{{ $inactive->precio_unitario }}</td>
-                        <td>{{ $inactive->valor_total }}</td>
-
-
-
-                        @php
-                            $dateActive = $inactive->created_at;
-
-                            $newDateActive = date('d-m-Y H:i:s', strtotime($dateActive));
-
-                        @endphp
-
-                        <td class="dates">{{ $newDateActive }}</td>
-
-
-
-                    </tr>
-                @endforeach
-
-            </tbody>
-
-        </table>
-    </div>
 
 
 </body>
