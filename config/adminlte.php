@@ -335,12 +335,7 @@ return [
                     'route'     => 'admin.projects.index',
 
                 ],
-                [
-                    'text'    => 'Lista de Proyectos inactivas',
-                    'icon'    => 'fas fa-fw fa-stream',
-                    'route'     => 'admin.projects.inactive',
 
-                ],
 
 
             ],
@@ -376,25 +371,25 @@ return [
         ],
 
         [
-            'text' => 'ARTICULOS',
+            'text' => 'MATERIALES',
             'icon' => 'fas fa-fw fa-share',
             'submenu' => [
 
                 [
-                    'text'    => 'Crear Articulo',
+                    'text'    => 'Crear Material',
                     'icon'    => 'fas fa-fw fa-list',
                     'route'     => 'admin.articles.create',
 
 
                 ],
                 [
-                    'text'    => 'Articulos',
+                    'text'    => 'Materiales',
                     'icon'    => 'fas fa-fw fa-keyboard',
                     'route'     => 'admin.articles.index',
 
                 ],
                 [
-                    'text'    => 'Lista de Articulos inactivas',
+                    'text'    => 'Lista de Materiales inactivas',
                     'icon'    => 'fas fa-fw fa-stream',
                     'route'     => 'admin.articles.inactive',
 
@@ -403,7 +398,7 @@ return [
 
             ],
         ],
-        [
+        /*   [
             'text' => 'DETALLES DE ENVIO',
             'icon' => 'fas fa-fw fa-share',
             'submenu' => [
@@ -425,7 +420,7 @@ return [
 
 
             ],
-        ],
+        ], */
 
     ],
 

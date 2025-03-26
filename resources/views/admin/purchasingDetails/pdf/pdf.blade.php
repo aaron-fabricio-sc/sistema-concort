@@ -248,12 +248,12 @@
 
     <div class="container">
 
-        <h1 style="margin-top:35px;">Detalles de ingresos de articulos</h1>
+        <h1 style="margin-top:35px;">Detalles de ingresos de materiales</h1>
         <table>
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Articulo</th>
+                    <th>Material</th>
                     <th>Cantidad de ingreso</th>
                     <th>Precio unitario</th>
 

@@ -3,33 +3,24 @@
 @section('title', 'Cormoran')
 
 @section('content_header')
-    <h1>Administrador de Materiales</h1>
+    <h1>Administrador de proyectos</h1>
 @stop
 
 @section('content')
-    <h4 class="text-info">Crear un nuevo Material.</h4>
+    <h4 class="text-info">Formulario de Envio</h4>
     <div class="card fondo-card fondo">
-        @if (session('message'))
-            <div class="alert alert-success">
-                <strong>{{ session('message') }}</strong>
-            </div>
-        @endif
-        @if (session('message-danger'))
-            <div class="alert alert-danger">
-                <strong>{{ session('message-danger') }}</strong>
-            </div>
-        @endif
+
 
         <div class="card-body overley">
 
-            @include('admin.articles.partials.nav')
-            {!! Form::open(['route' => 'admin.articles.store']) !!}
+            @include('admin.envios.partials.nav')
+            {!! Form::open(['route' => 'admin.envios.store']) !!}
 
-            @include('admin.articles.partials.form')
+            @include('admin.envios.partials.form')
 
 
             <div class="form-group">
-                {!! Form::submit('Crear', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Enviar', ['class' => 'btn btn-primary']) !!}
             </div>
 
             {!! Form::close() !!}

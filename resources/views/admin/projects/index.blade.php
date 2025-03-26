@@ -41,14 +41,23 @@
                                 <th>Estado</th>
                                 <th>Cantidad de Materiales</th>
 
-                                <th>Presupuesto Total</th>
+                                <th>Monto Invertido Actualmente</th>
+                                <th>Inversión Inicial</th>
+                                <th>Diferencia de la Inversión</th>
+                                <th>Presupuesto</th>
 
+
+
+
+
+                                <th class="text-success">Enviar Material</th>
+                                <th class="text-info">Ver Materiales enviados</th>
 
 
                                 <th class="text-primary">Editar</th>
 
 
-                                <th class="text-danger">Eliminar</th>
+
 
 
 
@@ -71,8 +80,43 @@
 
                                     <td>{{ $project->cantidad_total_materiales }}</td>
                                     <td>{{ $project->cantidad_total_precio }}</td>
+                                    <td>{{ $project->presupuesto_inicial }}</td>
 
+                                    @if ($project->cantidad_total_precio > $project->presupuesto_inicial)
+                                        <td class="text-danger">
+                                            {{ $project->presupuesto_inicial - $project->cantidad_total_precio }}
+                                        </td>
+                                    @else
+                                        <td class="text-success">
+                                            {{ $project->presupuesto_inicial - $project->cantidad_total_precio }}
+                                        </td>
+                                    @endif
 
+                                    @if ($project->presupuesto_inicial > $project->cantidad_total_precio)
+                                        <td class="text-success">
+                                            Presupuesto no Superado
+                                        </td>
+                                    @else
+                                        <td class="text-danger">
+                                            Presupuesto Superado
+                                        </td>
+                                    @endif
+
+                                    <td>
+
+                                        <a class="btn btn-success btn-sm m-1"
+                                            href="{{ route('admin.envios.create', $project) }}"><i
+                                                class="fas fa-undo-alt"></i></a>
+
+                                    </td>
+
+                                    <td>
+
+                                        <a class="btn btn-info btn-sm m-1"
+                                            href="{{ route('admin.envios.index', $project) }}"><i
+                                                class="fas fa-eye"></i></a>
+
+                                    </td>
                                     <td>
 
                                         <a class="btn btn-primary btn-sm m-1"
@@ -81,12 +125,6 @@
 
                                     </td>
 
-                                    <td>
-
-                                        <a href="{{ route('admin.projects.viewConfirmDelete', $project->id) }}"
-                                            class="btn btn-danger btn-sm  m-1"> <i class="fas fa-trash-alt"></i> </a>
-
-                                    </td>
 
 
                                 </tr>
@@ -101,15 +139,28 @@
                                 <th>Fecha de inicio</th>
                                 <th>Fecha de fin</th>
                                 <th>Estado</th>
+                                <th>Cantidad de Materiales</th>
 
-                                <th>Presupuesto Total</th>
+                                <th>Monto Invertido Actualmente</th>
+                                <th>Inversión Inicial</th>
+
+                                <th>Diferencia de la Inversión</th>
+                                <th>Presupuesto</th>
 
 
+                                <th class="text-success">Enviar Material</th>
+                                <th class="text-info">Ver Materiales enviados</th>
 
                                 <th class="text-primary">Editar</th>
 
 
-                                <th class="text-danger">Eliminar</th>
+
+
+
+
+
+
+
 
                             </tr>
                         </tfoot>

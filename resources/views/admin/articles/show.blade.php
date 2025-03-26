@@ -3,11 +3,11 @@
 @section('title', 'Cormoran')
 
 @section('content_header')
-    <h1>Administrador de los Artículos.</h1>
+    <h1>Administrador de los Materialess.</h1>
 @stop
 
 @section('content')
-    <h4 class="text-info">Detalles del Artículo {{ $article->name }}</h4>
+    <h4 class="text-info">Detalles del Materiales {{ $article->name }}</h4>
     <div class="card fondo">
         <div class="overley ">
             @if (session('message'))
@@ -25,7 +25,7 @@
 
                 <div class="row">
                     <div class="col-md-3">
-                        <h4 class="text-primary">Nombre del artículo:
+                        <h4 class="text-primary">Nombre del Materiales:
                         </h4>
                         <h5 class="text-secondary ">
                             {{ $article->nombre }}</h5>

@@ -12,10 +12,6 @@
                     class="ml-1">Lista de Proyectos</span></i></a>
     </div>
 
-    <div class="w-50">
-        <a class="btn btn-danger btn-sm  my-2" href="{{ route('admin.projects.inactive') }}"><i
-                class="fas fa-user-times"><span class="ml-1">Proyectos inactivos</span></i></a>
-    </div>
 
     <div class="w-50">
         <a class="btn btn-info btn-sm  my-2" href="{{ route('admin.projects.pdf.list') }}"><i

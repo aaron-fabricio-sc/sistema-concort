@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DetailController;
+use App\Http\Controllers\EnvioController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GroupController;
@@ -90,15 +91,25 @@ Route::resource("/purchasingDetails", PurchasingDetailsController::class)->middl
 
 Route::get("/projects/activate/{project}", [ProjectController::class, 'activate'])->middleware(['auth', 'verified'])->name('admin.projects.activate');
 Route::get("/projects/viewConfirmDelete/{id}", [ProjectController::class, "viewConfirmDelete"])->middleware(['auth', 'verified'])->name("admin.projects.viewConfirmDelete");
-
+Route::get("/projects/pdf/list", [ProjectController::class, "pdfList"])->middleware(['auth', 'verified'])->name("admin.projects.pdf.list");
 
 Route::get("/projects/inactive", [ProjectController::class, 'inactive'])->middleware(['auth', 'verified'])->name('admin.projects.inactive');
+
 Route::get("/projects/inactivate/{department}", [ProjectController::class, 'inactivate'])->middleware(['auth', 'verified'])->name('admin.projects.inactivate');
-Route::get("/projects/pdf/list", [ProjectController::class, "pdfList"])->middleware(['auth', 'verified'])->name("admin.projects.pdf.list");
 
 
 Route::resource("/projects", ProjectController::class)->middleware(['auth', 'verified'])->names('admin.projects');
 
 
+
+
+
+Route::get("/projects/pdf/list/{id}", [EnvioController::class, "pdfList"])->middleware(['auth', 'verified'])->name("admin.envios.pdf.list");
+
+
+Route::get("/envios/{id}", [EnvioController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.envios.index');
+
+Route::post("/envios/create/", [EnvioController::class, 'store'])->middleware(['auth', 'verified'])->name('admin.envios.store');
+Route::get("/envios/create/{id}", [EnvioController::class, 'create'])->middleware(['auth', 'verified'])->name('admin.envios.create');
 
 require __DIR__ . '/auth.php';
