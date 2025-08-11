@@ -35,7 +35,7 @@
                             <tr>
                                 <th>Nombre</th>
                                 <th>Descripción</th>
-                                <th>Grupo</th>
+                                <th>Clasificación de material</th>
 
 
 
@@ -125,7 +125,8 @@
                             <tr>
                                 <th>Nombre</th>
                                 <th>Descripción</th>
-                                <th>Grupo</th>
+                                <th>Clasificación de material</th>
+
 
 
                                 <th>Cod</th>

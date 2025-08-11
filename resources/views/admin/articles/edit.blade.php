@@ -3,11 +3,11 @@
 @section('title', 'Cormoran')
 
 @section('content_header')
-    <h1>Administrador de Artículos</h1>
+    <h1>Administrador para materiales.</h1>
 @stop
 
 @section('content')
-    <h4 class="text-info">Editar el Artículo.</h4>
+    <h4 class="text-info">Editar Materiales.</h4>
     <div class="card fondo-card fondo">
         @if (session('message'))
             <div class="alert alert-success">
@@ -71,12 +71,6 @@
                     {!! Form::submit('Actualizar Cantidad', ['class' => 'btn btn-primary']) !!}
                 </div>
             </div>
-
-
-
-
-
-
 
 
             {!! Form::close() !!}

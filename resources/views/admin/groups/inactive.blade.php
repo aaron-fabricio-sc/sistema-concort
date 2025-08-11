@@ -3,11 +3,12 @@
 @section('title', 'Lista de grupos')
 
 @section('content_header')
-    <h1>Administrador para grupos inactivos.</h1>
+    <h1>Administrador de clasificación de material.</h1>
+
 @stop
 
 @section('content')
-    <h4 class="text-danger">Lista de los grupos inactivos</h4>
+    <h4 class="text-danger">Lista de clasificación de material</h4>
     {{-- 
  @livewire('employee.employee-index')
  --}}

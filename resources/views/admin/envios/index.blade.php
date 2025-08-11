@@ -53,12 +53,11 @@
 
                                 <th>Nombre del articulo</th>
                                 <th>Cantidad</th>
+                                <th>Tipo de medida</th>
+
                                 <th>Precio</th>
 
                                 <th>Fecha de envio</th>
-
-
-
                             </tr>
                         </thead>
                         <tbody>
@@ -68,6 +67,7 @@
 
                                     <td>{{ $envio->article->nombre }}</td>
                                     <td>{{ $envio->cantidad }}</td>
+                                    <td>{{ $envio->article->tipo_medida }}</td>
                                     <td>{{ $envio->monto }}</td>
 
 
@@ -79,14 +79,6 @@
                                     @endphp
 
                                     <td class="dates">{{ $newDateActive }}</td>
-
-
-
-
-
-
-
-
                                 </tr>
                             @endforeach
                         </tbody>
@@ -97,6 +89,8 @@
 
                                 <th>Nombre del articulo</th>
                                 <th>Cantidad</th>
+                                <th>Tipo de medida</th>
+
                                 <th>Precio</th>
 
                                 <th>Fecha de envio</th>

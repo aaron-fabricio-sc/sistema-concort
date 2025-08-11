@@ -2,19 +2,18 @@
 
     <div class="w-50">
         <a class="btn btn-success btn-sm  my-2" href="{{ route('admin.groups.create') }}"> <i class="fas fa-plus"><span
-                    class="ml-1">Crear un nuevo
-                    Grupo</span></i></a>
+                    class="ml-1">Crear clasificación de material</span></i></a>
     </div>
 
 
     <div class="w-50">
         <a class="btn btn-primary btn-sm  my-2" href="{{ route('admin.groups.index') }}"><i class="fas fa-list-alt"><span
-                    class="ml-1">Lista de Grupos</span></i></a>
+                    class="ml-1">Lista de clasificación de material</span></i></a>
     </div>
 
     <div class="w-50">
         <a class="btn btn-danger btn-sm  my-2" href="{{ route('admin.groups.inactive') }}"><i
-                class="fas fa-user-times"><span class="ml-1">Grupos inactivos</span></i></a>
+                class="fas fa-user-times"><span class="ml-1">Clasificación de materiales inactivos</span></i></a>
     </div>
 
 

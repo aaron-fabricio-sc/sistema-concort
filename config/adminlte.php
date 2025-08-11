@@ -342,25 +342,25 @@ return [
         ],
 
         [
-            'text' => 'GRUPOS',
+            'text' => 'CLASIFICACIÓN DE MATERIALES',
             'icon' => 'fas fa-fw fa-share',
             'submenu' => [
 
                 [
-                    'text'    => 'Crear Grupo',
+                    'text'    => 'Crear clasificación de material',
                     'icon'    => 'fas fa-fw fa-list',
                     'route'     => 'admin.groups.create',
 
 
                 ],
                 [
-                    'text'    => 'Grupos',
+                    'text'    => 'Lista de Clasificación de Material',
                     'icon'    => 'fas fa-fw fa-keyboard',
                     'route'     => 'admin.groups.index',
 
                 ],
                 [
-                    'text'    => 'Lista de Grupos inactivas',
+                    'text'    => 'Lista de Clasificación de Material inactivos',
                     'icon'    => 'fas fa-fw fa-stream',
                     'route'     => 'admin.groups.inactive',
 
@@ -371,25 +371,25 @@ return [
         ],
 
         [
-            'text' => 'MATERIALES',
+            'text' => 'MATERIALES DE ALMACÉN',
             'icon' => 'fas fa-fw fa-share',
             'submenu' => [
 
                 [
-                    'text'    => 'Crear Material',
+                    'text'    => 'Crear Material de almacén',
                     'icon'    => 'fas fa-fw fa-list',
                     'route'     => 'admin.articles.create',
 
 
                 ],
                 [
-                    'text'    => 'Materiales',
+                    'text'    => 'Lista de Material de almacén',
                     'icon'    => 'fas fa-fw fa-keyboard',
                     'route'     => 'admin.articles.index',
 
                 ],
                 [
-                    'text'    => 'Lista de Materiales inactivas',
+                    'text'    => 'Lista de Material de almacén inactivos',
                     'icon'    => 'fas fa-fw fa-stream',
                     'route'     => 'admin.articles.inactive',
 

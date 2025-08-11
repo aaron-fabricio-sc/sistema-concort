@@ -58,7 +58,7 @@ class EnvioController extends Controller
         $cantidad = $article->cantidad_actual;
 
         if ($cantidad < $request->cantidad) {
-            return redirect()->route('admin.projects.index')->with('message', 'No hay suficiente cantidad de material en el inventario.');
+            return redirect()->route('admin.projects.index')->with('message-danger', 'No hay suficiente cantidad de material en el inventario.');
         }
 
         $envio = new Envio();

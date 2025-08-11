@@ -3,11 +3,12 @@
 @section('title', 'Cormoran')
 
 @section('content_header')
-    <h1>Administrador de Grupos</h1>
+    <h1>Administrador de clasificación de material.</h1>
+
 @stop
 
 @section('content')
-    <h4 class="text-info">Crear un nuevo Grupo</h4>
+    <h4 class="text-info">Crear clasificación de material</h4>
     <div class="card fondo-card fondo">
 
 

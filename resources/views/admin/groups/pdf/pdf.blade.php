@@ -248,7 +248,7 @@
 
     <div class="container">
 
-        <h1>Grupos Activos</h1>
+        <h1>Clasificación de Materiales Activos</h1>
         <table>
             <thead>
                 <tr>
@@ -303,7 +303,7 @@
 
     <div class="container">
 
-        <h1>Grupos Inactivos</h1>
+        <h1>Clasificación de Materiales Inactivos</h1>
         <table>
             <thead>
                 <tr>

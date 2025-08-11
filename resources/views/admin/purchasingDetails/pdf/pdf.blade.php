@@ -254,6 +254,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Material</th>
+                    <th>Tipo de medida</th>
+
                     <th>Cantidad de ingreso</th>
                     <th>Precio unitario</th>
 
@@ -269,6 +271,8 @@
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->article->nombre }}</td>
+                        <td>{{ $item->article->tipo_medida }}</td>
+
                         <td>{{ $item->cantidad }}</td>
                         <td>{{ $item->precio_unitario }}</td>
                         <td>{{ $item->precio_total }}</td>
