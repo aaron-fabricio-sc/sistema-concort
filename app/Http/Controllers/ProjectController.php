@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Envio;
+use App\Models\Kardex;
 use App\Models\Project;
+use App\Models\purchasingDetails;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
@@ -144,6 +147,28 @@ class ProjectController extends Controller
         // $settings = Settings::find(1);
 
         $pdf = Pdf::loadView('admin.projects.pdf.pdfList', compact("actives", "inactives"));
+        return $pdf->stream();
+    }
+
+    public function pdfKardex(Project $project)
+    {
+
+        if (!isset($project->kardex)) {
+            return redirect()->route("admin.projects.index")->with("message-danger", "El proyecto no tiene un Kardex.");
+        }
+
+        $ingresos = purchasingDetails::where('kardex_id', $project->kardex->id)->get();
+        $totalPrecioIngresos = PurchasingDetails::where('kardex_id', $project->kardex->id)->sum('precio_total');
+
+
+        $salidas = Envio::where('kardex_id', $project->kardex->id)->get();
+        $totalPrecioSalidas = Envio::where('kardex_id', $project->kardex->id)->sum('monto');
+        $kardex = Kardex::find($project->kardex->id);
+
+        $saldo = $totalPrecioIngresos - $totalPrecioSalidas;
+
+
+        $pdf = Pdf::loadView('admin.projects.pdf.kardex', compact("ingresos", "totalPrecioIngresos", "salidas", "totalPrecioSalidas", "kardex", "saldo"));
         return $pdf->stream();
     }
 }

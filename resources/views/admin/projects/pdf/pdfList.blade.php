@@ -241,9 +241,6 @@
         </div>
 
 
-
-
-
     </div>
 
     <div class="container">
@@ -272,8 +269,6 @@
                 </tr>
 
 
-
-
             </thead>
             <tbody>
                 @foreach ($actives as $active)
@@ -286,9 +281,6 @@
                         <td>{{ $active->fecha_fin }}</td>
                         <td>{{ $active->estado }}</td>
                         <td>{{ $active->cantidad_total_materiales }}</td>
-
-
-
 
 
                         <td class="dates">{{ $active->cantidad_total_precio }}Bs</td>

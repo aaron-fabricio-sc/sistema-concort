@@ -35,11 +35,11 @@
                             <tr>
                                 <th>Nombre de la empresa</th>
                                 <th>Nombre del proyecto</th>
-                                <th>Descripción</th>
+
                                 <th>Fecha de inicio</th>
                                 <th>Fecha de fin</th>
                                 <th>Estado</th>
-                                <th>Cantidad de Materiales</th>
+
 
                                 <th>Monto Invertido Actualmente</th>
                                 <th>Inversión Inicial</th>
@@ -53,6 +53,7 @@
                                 <th class="text-success">Enviar Material</th>
                                 <th class="text-info">Ver Materiales enviados</th>
 
+                                <th class="text-primary">Descargar Kardex</th>
 
                                 <th class="text-primary">Editar</th>
 
@@ -72,23 +73,23 @@
                                 <tr>
                                     <td>{{ $project->nombre_empresa }}</td>
                                     <td>{{ $project->nombre_proyecto }}</td>
-                                    <td>{{ $project->descripcion }}</td>
+
                                     <td>{{ $project->fecha_inicio }}</td>
                                     <td>{{ $project->fecha_fin }}</td>
 
                                     <td>{{ $project->estado }}</td>
 
-                                    <td>{{ $project->cantidad_total_materiales }}</td>
-                                    <td>{{ $project->cantidad_total_precio }}</td>
-                                    <td>{{ $project->presupuesto_inicial }}</td>
+
+                                    <td>{{ $project->cantidad_total_precio }} Bs.</td>
+                                    <td>{{ $project->presupuesto_inicial }} Bs.</td>
 
                                     @if ($project->cantidad_total_precio > $project->presupuesto_inicial)
                                         <td class="text-danger">
-                                            {{ $project->presupuesto_inicial - $project->cantidad_total_precio }}
+                                            {{ $project->presupuesto_inicial - $project->cantidad_total_precio }} Bs.
                                         </td>
                                     @else
                                         <td class="text-success">
-                                            {{ $project->presupuesto_inicial - $project->cantidad_total_precio }}
+                                            {{ $project->presupuesto_inicial - $project->cantidad_total_precio }} Bs.
                                         </td>
                                     @endif
 
@@ -117,6 +118,15 @@
                                                 class="fas fa-eye"></i></a>
 
                                     </td>
+
+                                    <td>
+
+                                        <a class="btn btn-success btn-sm m-1"
+                                            href="{{ route('admin.projects.pdf.kardex', $project) }}"><i
+                                                class="fas fa-file"></i></a>
+
+                                    </td>
+
                                     <td>
 
                                         <a class="btn btn-primary btn-sm m-1"
@@ -135,11 +145,11 @@
                             <tr>
                                 <th>Nombre de la empresa</th>
                                 <th>Nombre del proyecto</th>
-                                <th>Descripción</th>
+
                                 <th>Fecha de inicio</th>
                                 <th>Fecha de fin</th>
                                 <th>Estado</th>
-                                <th>Cantidad de Materiales</th>
+
 
                                 <th>Monto Invertido Actualmente</th>
                                 <th>Inversión Inicial</th>
@@ -150,6 +160,7 @@
 
                                 <th class="text-success">Enviar Material</th>
                                 <th class="text-info">Ver Materiales enviados</th>
+                                <th class="text-primary">Descargar Kardex</th>
 
                                 <th class="text-primary">Editar</th>
 

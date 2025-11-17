@@ -11,16 +11,27 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('purchasing_details', function (Blueprint $table) {
+        Schema::create('envios', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('project_id')->nullable();
+
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('set null')->onUpdate('cascade');
+
+
             $table->unsignedBigInteger('article_id')->nullable();
 
             $table->foreign('article_id')->references('id')->on('articles')->onDelete('set null')->onUpdate('cascade');
 
-            $table->integer("cantidad")->nullable();
-            $table->decimal("precio_unitario", 15, 2)->nullable();
 
-            $table->decimal('precio_total', 15, 2)->nullable(); // Cambiado a decimal para montos de dinero
+            $table->integer('cantidad')->nullable();
+
+
+            $table->decimal('monto')->nullable();
+
+            $table->unsignedBigInteger('kardex_id')->nullable();
+            $table->foreign('kardex_id')->references('id')->on('kardexes')->onDelete('set null')->onUpdate('cascade');
+
             $table->timestamps();
         });
     }
@@ -30,6 +41,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('purchasing_details');
+        Schema::dropIfExists('envios');
     }
 };

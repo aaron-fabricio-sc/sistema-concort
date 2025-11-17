@@ -22,4 +22,9 @@ class Envio extends Model
 
         return $this->belongsTo(Project::class, "project_id", "id",);
     }
+
+    public function kardex()
+    {
+        return $this->belongsTo(Kardex::class);
+    }
 }

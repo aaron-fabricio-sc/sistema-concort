@@ -23,15 +23,13 @@ return new class extends Migration
             $table->decimal("precio_unitario", 15, 2)->nullable();
             $table->decimal("valor_total", 15, 2)->nullable();
 
-
-
-
-
-
             $table->unsignedBigInteger('group_id')->nullable();
-
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('set null')->onUpdate('cascade');
+
+
             $table->tinyInteger("status")->default(1);
+
+
 
 
 

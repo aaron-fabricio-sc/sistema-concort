@@ -14,6 +14,7 @@
 
 
 
+
 <div class="form-group">
     {!! Form::label('cantidad', 'Cantidad del envio: ') !!}
     {!! Form::text('cantidad', null, [
@@ -24,4 +25,11 @@
     @error('cantidad')
         <span class="text-danger">{{ $message }}</span>
     @enderror
+</div>
+
+
+<div class="form-group">
+
+    {!! Form::hidden('project_id', $project_id, ['class' => 'w-50 form-control']) !!}
+
 </div>

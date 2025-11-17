@@ -32,5 +32,34 @@ class GroupSeeder extends Seeder
         $group3->description = 'Material de construcción hecho a base de cemento, arena y gravas o piedras.';
         $group3->status = 1;
         $group3->save();
+        $group4 = new Group();
+        $group4->name = 'Acero de Refuerzo';
+        $group4->description = 'Grupo de materiales usados para refuerzo estructural, como barras corrugadas y mallas electrosoldadas.';
+        $group4->status = 1;
+        $group4->save();
+
+        $group5 = new Group();
+        $group5->name = 'Cimientos y Encofrados';
+        $group5->description = 'Materiales necesarios para la construcción de cimientos y la instalación de encofrados temporales.';
+        $group5->status = 1;
+        $group5->save();
+
+        $group6 = new Group();
+        $group6->name = 'Mampostería y Albañilería';
+        $group6->description = 'Grupo de insumos usados para muros, tabiques, ladrillos, bloques y morteros.';
+        $group6->status = 1;
+        $group6->save();
+
+        $group7 = new Group();
+        $group7->name = 'Instalaciones Sanitarias';
+        $group7->description = 'Materiales utilizados para la instalación de tuberías, accesorios y sistemas de agua y desagüe.';
+        $group7->status = 1;
+        $group7->save();
+
+        $group8 = new Group();
+        $group8->name = 'Instalaciones Eléctricas';
+        $group8->description = 'Insumos destinados a la instalación de cables, tableros, tuberías eléctricas y dispositivos de protección.';
+        $group8->status = 1;
+        $group8->save();
     }
 }

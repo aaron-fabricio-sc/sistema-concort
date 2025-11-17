@@ -10,4 +10,10 @@ class Project extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+
+    public function kardex()
+    {
+        return $this->hasOne(Kardex::class, 'project_id');
+    }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\EnvioController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\KardexController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\PurchasingDetailsController;
 use App\Models\Article;
@@ -88,14 +89,15 @@ Route::resource("/purchasingDetails", PurchasingDetailsController::class)->middl
 
 
 
+Route::get("/projects/pdf/kardex/{project}", [ProjectController::class, "pdfKardex"])->middleware(['auth', 'verified'])->name("admin.projects.pdf.kardex");
 
 Route::get("/projects/activate/{project}", [ProjectController::class, 'activate'])->middleware(['auth', 'verified'])->name('admin.projects.activate');
 Route::get("/projects/viewConfirmDelete/{id}", [ProjectController::class, "viewConfirmDelete"])->middleware(['auth', 'verified'])->name("admin.projects.viewConfirmDelete");
 Route::get("/projects/pdf/list", [ProjectController::class, "pdfList"])->middleware(['auth', 'verified'])->name("admin.projects.pdf.list");
-
 Route::get("/projects/inactive", [ProjectController::class, 'inactive'])->middleware(['auth', 'verified'])->name('admin.projects.inactive');
 
 Route::get("/projects/inactivate/{department}", [ProjectController::class, 'inactivate'])->middleware(['auth', 'verified'])->name('admin.projects.inactivate');
+
 
 
 Route::resource("/projects", ProjectController::class)->middleware(['auth', 'verified'])->names('admin.projects');
@@ -112,4 +114,17 @@ Route::get("/envios/{id}", [EnvioController::class, 'index'])->middleware(['auth
 Route::post("/envios/create/", [EnvioController::class, 'store'])->middleware(['auth', 'verified'])->name('admin.envios.store');
 Route::get("/envios/create/{id}", [EnvioController::class, 'create'])->middleware(['auth', 'verified'])->name('admin.envios.create');
 
+
+
+
+Route::get("/kardex/inactive", [KardexController::class, 'inactive'])->middleware(['auth', 'verified'])->name('admin.kardex.inactive');
+Route::get("/kardex/activate/{kardex}", [KardexController::class, 'activate'])->middleware(['auth', 'verified'])->name('admin.kardex.activate');
+
+Route::get("/kardex/viewConfirmDelete/{id}", [KardexController::class, "viewConfirmDelete"])->middleware(['auth', 'verified'])->name("admin.kardex.viewConfirmDelete");
+
+Route::get("/kardex/inactivate/{kardex}", [KardexController::class, 'inactivate'])->middleware(['auth', 'verified'])->name('admin.kardex.inactivate');
+Route::get("/kardex/pdf/ingresos/{kardex}", [KardexController::class, "pdfIngresos"])->middleware(['auth', 'verified'])->name("admin.kardex.pdf.ingresos");
+Route::get("/kardex/pdf/salidas/{kardex}", [KardexController::class, "pdfSalidas"])->middleware(['auth', 'verified'])->name("admin.kardex.pdf.salidas");
+
+Route::resource("/kardex", KardexController::class)->middleware(['auth', 'verified'])->names('admin.kardex');
 require __DIR__ . '/auth.php';

@@ -216,6 +216,16 @@
         table {
             box-sizing: border-box;
         }
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+
+        }
+
+        .cod {
+            color: rgb(0, 169, 45)
+        }
     </style>
 </head>
 
@@ -248,50 +258,47 @@
 
     <div class="container">
 
-        <h1 style="margin-top:35px;">Detalles de ingresos de materiales</h1>
+        <h1>Registro de materiales ingresados
+
+        </h1>
+        <h2>Kardex: <span class="cod">{{ $kardex->cod_kardex }}</span>
+
+        </h2>
+        <h2>Nombre de la empresa:
+            <span class="cod">{{ $kardex->project->nombre_empresa }}</span>
+        </h2>
+        <h2>Nombre del proyecto: <span class="cod">{{ $kardex->project->nombre_proyecto }}</span></h2>
+        <h2>Monto total de ingresos: <span class="cod">{{ $totalPrecio }} Bs</span></h2>
+
+
+
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Material</th>
-                    <th>Tipo de medida</th>
+                    <th>Nombre de Material</th>
+                    <th>Cantidad</th>
+                    <th>Unidad de medida</th>
 
-                    <th>Cantidad de ingreso</th>
-                    <th>Precio unitario</th>
-
-                    <th>Monto total</th>
-                    <th>Cod Kardex</th>
-                    <th>Proveedor</th>
-                    <th>Fecha de ingreso</th>
-
-
+                    <th>Precio Unitario</th>
+                    <th>Precio Total</th>
+                    <th>Fecha de registro</th>
                 </tr>
-
             </thead>
             <tbody>
-                @foreach ($list as $item)
+                @foreach ($ingresos as $ingreso)
                     <tr>
-                        <td>{{ $item->id }}</td>
-                        <td>{{ $item->article->nombre }}</td>
-                        <td>{{ $item->article->tipo_medida }}</td>
+                        <td>{{ $ingreso->article->nombre }}</td>
+                        <td>{{ $ingreso->cantidad }}</td>
+                        <td>{{ $ingreso->article->tipo_medida }}</td>
 
-                        <td>{{ $item->cantidad }}</td>
-                        <td>{{ $item->precio_unitario }}</td>
-                        <td>{{ $item->precio_total }}</td>
-                        <td>{{ $item->kardex->cod_kardex ?? 'Sin Kardex' }}</td>
-                        <td>{{ $item->proveedor }}</td>
-
-
-
+                        <td>{{ $ingreso->precio_unitario }}</td>
+                        <td>{{ $ingreso->precio_total }}</td>
 
                         @php
-                            $dateActive = $item->created_at;
+                            $dateActive = $ingreso->created_at;
 
                             $newDateActive = date('d-m-Y H:i:s', strtotime($dateActive));
 
-                            $dateUpdate = $item->updated_at;
-
-                            $newDateUpdate = date('d-m-Y H:i:s', strtotime($dateUpdate));
                         @endphp
 
                         <td class="dates">{{ $newDateActive }}</td>
@@ -305,7 +312,6 @@
 
         </table>
     </div>
-
 
 
 

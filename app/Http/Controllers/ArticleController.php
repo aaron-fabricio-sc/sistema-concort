@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Group;
+use App\Models\Kardex;
 use App\Models\purchasingDetails;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
@@ -126,8 +127,9 @@ class ArticleController extends Controller
         ];
 
         $group = Group::where("status", '1')->pluck("name", 'id');
+        $kardex = Kardex::where("status", '1')->pluck("cod_kardex", 'id');
 
-        return view('admin.articles.edit', compact("article", "group", "medidas"));
+        return view('admin.articles.edit', compact("article", "group", "medidas", "kardex"));
     }
 
     /**
@@ -201,7 +203,7 @@ class ArticleController extends Controller
 
         $article->status = 0;
         $article->save();
-        return redirect()->route("admin.articles.index")->with("message-danger", "Se inhabilito el Artículo.");
+        return redirect()->route("admin.articles.index")->with("message-danger", "Se inhabilito el Material.");
     }
 
     public function activate($id)
@@ -211,7 +213,7 @@ class ArticleController extends Controller
         $article->status = 1;
         $article->save();
 
-        return redirect()->route("admin.articles.index")->with("message", "Se reestablecio el Artículo.");
+        return redirect()->route("admin.articles.index")->with("message", "Se reestablecio el Material.");
     }
 
 
@@ -231,7 +233,8 @@ class ArticleController extends Controller
         $purchanseDetails->precio_unitario = $article->precio_unitario;
         $purchanseDetails->precio_total = $agregar_cantidad * $article->precio_unitario;
 
-
+        $purchanseDetails->kardex_id = $request->kardex_id;
+        $purchanseDetails->proveedor = $request->proveedor;
 
 
         $article->save();
@@ -239,7 +242,7 @@ class ArticleController extends Controller
         $purchanseDetails->save();
 
 
-        return redirect()->route("admin.articles.edit", $article->id)->with("message", "Se actualizó la cantidad del Artículo correctamente");
+        return redirect()->route("admin.articles.edit", $article->id)->with("message", "Se actualizó la cantidad del Material correctamente");
         //return view('admin.articles.updateCantidad', compact("article"));
     }
 

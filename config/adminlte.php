@@ -398,6 +398,34 @@ return [
 
             ],
         ],
+        [
+            'text' => 'KARDEX',
+            'icon' => 'fas fa-fw fa-share',
+            'submenu' => [
+
+                [
+                    'text'    => 'Crear KARDEX',
+                    'icon'    => 'fas fa-fw fa-list',
+                    'route'     => 'admin.kardex.create',
+
+
+                ],
+                [
+                    'text'    => 'Lista de KARDEX',
+                    'icon'    => 'fas fa-fw fa-keyboard',
+                    'route'     => 'admin.kardex.index',
+
+                ],
+                [
+                    'text'    => 'Lista de KARDEX inactivos',
+                    'icon'    => 'fas fa-fw fa-stream',
+                    'route'     => 'admin.kardex.inactive',
+
+                ],
+
+
+            ],
+        ],
         /*   [
             'text' => 'DETALLES DE ENVIO',
             'icon' => 'fas fa-fw fa-share',

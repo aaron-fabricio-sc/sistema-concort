@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Envio;
 use App\Models\Project;
+use App\Models\purchasingDetails;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
@@ -28,13 +29,43 @@ class EnvioController extends Controller
      */
     public function create($project_id)
     {
-        //
-        $articles = Article::where("status", '1')->pluck("nombre", 'id');
+        // Buscar el proyecto; si no existe, redirigir o abortar
+        $project = Project::find($project_id);
+        if (!$project) {
+            return redirect()->back()->with('error', 'Proyecto no encontrado.');
+        }
 
+        // Verificar que el proyecto tenga un kardex asociado
+        if (!$project->kardex) {
+            // Puedes devolver una vista vacía, un mensaje o un select vacío
+            $articles = collect(); // colección vacía
+            return view('admin.envios.create', compact('project_id', 'articles'));
+        }
 
+        $kardexId = $project->kardex->id;
 
+        // Obtener los purchasingDetails del kardex
+        $purchasingDetails = PurchasingDetails::where('kardex_id', $kardexId)->get();
+
+        // Extraer los article_id únicos como array
+        $articleIds = $purchasingDetails->pluck('article_id')->filter()->unique()->toArray();
+
+        // Si no hay artículos asociados, devolvemos una colección vacía para el select
+        if (empty($articleIds)) {
+            $articles = collect();
+            return view('admin.envios.create', compact('project_id', 'articles'));
+        }
+
+        // Obtener los artículos activos cuyos ids están en $articleIds
+        // y devolver un array id => nombre (para usar en Form::select)
+        $articles = \App\Models\Article::where('status', 1)
+            ->whereIn('id', $articleIds)
+            ->pluck('nombre', 'id');
+
+        // Finalmente, mostramos la vista con los datos
         return view('admin.envios.create', compact('project_id', 'articles'));
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -68,6 +99,8 @@ class EnvioController extends Controller
         $envio->article_id = $request->article_id;
         $envio->cantidad = $request->cantidad;
         $envio->monto = $request->cantidad * $precio;
+        $envio->kardex_id = $project->kardex->id;
+
 
         $envio->save();
         $project->cantidad_total_materiales += $request->cantidad;

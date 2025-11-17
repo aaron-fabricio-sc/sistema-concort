@@ -3,32 +3,34 @@
 @section('title', 'Eliminar Empleado')
 
 @section('content_header')
-    <h1>Administrador de los Materiales.</h1>
+    <h1>Administrador de Kardex.</h1>
 @stop
 
 @section('content')
-    <h4 class="title_view text-danger">Eliminar el Material</h4>
+    <h4 class="title_view">Eliminar kardex</h4>
     <div class="card fondo-card">
         <div class="card-body">
 
-            @include('admin.articles.partials.nav')
+            @include('admin.groups.partials.nav')
 
             <div class="card">
                 <div class="card-body shadow-lg">
-                    <h4 class="text-danger">Esta seguro que desea eliminar el Material: </h4>
+                    <h4 class="text-danger">Esta seguro que desea eliminar el Kardex: </h4>
 
-                    <p class=" text-lg"><b>Nombre: </b> {{ $article->nombre }}</p>
-                    <p class=" text-lg"><b>Descripción: </b> {{ $article->descripcion }}
+                    <p class=" text-lg"><b>Codigo: </b> {{ $dataKardex->cod_kardex }}</p>
+                    <p class=" text-lg"><b>Empresa a la que pertenece: </b> {{ $dataKardex->project->nombre_empresa }}
+                    <p class=" text-lg"><b>Nombre de proyecto: </b> {{ $dataKardex->project->nombre_proyecto }}
+
                     </p>
 
-                    {!! Form::open(['route' => ['admin.articles.destroy', $article], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['admin.kardex.destroy', $dataKardex], 'method' => 'delete']) !!}
 
 
-                    <a href="{{ route('admin.articles.inactivate', $article) }}" class="btn btn-danger">Eliminar
+                    <a href="{{ route('admin.kardex.inactivate', $dataKardex) }}" class="btn btn-danger">Eliminar
                     </a>
 
 
-                    <a href="{{ route('admin.articles.index') }}" class="btn btn-primary mx-2">Cancelar</a>
+                    <a href="{{ route('admin.kardex.index') }}" class="btn btn-primary mx-2">Cancelar</a>
 
                     {{-- 
                     {!! Form::submit('Eliminar Permanentemente', ['class' => 'btn btn-danger']) !!}

@@ -16,28 +16,27 @@ class ProjectSeeder extends Seeder
         //
 
         Project::create([
-            'nombre_empresa' => 'Empresa Ejemplo',
-            'nombre_proyecto' => 'Proyecto Ejemplo',
-            'descripcion' => 'Descripción del proyecto ejemplo.',
-            'fecha_inicio' => '2025-02-15',
-            'fecha_fin' => '2025-12-31',
+            'nombre_empresa' => 'Constructora Hernández S.R.L.',
+            'nombre_proyecto' => 'Edificio Residencial Los Álamos',
+            'descripcion' => 'Construcción de un edificio de 6 pisos con departamentos familiares en la zona Sur.',
+            'fecha_inicio' => '2025-01-20',
+            'fecha_fin' => '2026-02-28',
             'estado' => 'En progreso',
             'cantidad_total_materiales' => 0,
-            'cantidad_total_precio' => 0.00, // Cambiado a decimal
-            'presupuesto_inicial' => 10000,
+            'cantidad_total_precio' => 0.00,
+            'presupuesto_inicial' => 850000, // presupuesto realista
         ]);
 
-        // Puedes agregar más registros si lo deseas
         Project::create([
-            'nombre_empresa' => 'Otra Empresa',
-            'nombre_proyecto' => 'Otro Proyecto',
-            'descripcion' => 'Descripción de otro proyecto.',
-            'fecha_inicio' => '2025-03-01',
-            'fecha_fin' => '2025-11-30',
+            'nombre_empresa' => 'Ingeniería y Servicios La Paz',
+            'nombre_proyecto' => 'Mejoramiento de Vías Urbanas',
+            'descripcion' => 'Proyecto de pavimentación y ensanchamiento de calles principales en zona central.',
+            'fecha_inicio' => '2024-07-10',
+            'fecha_fin' => '2025-03-15',
             'estado' => 'Completado',
             'cantidad_total_materiales' => 0,
-            'cantidad_total_precio' => 0.00, // Cambiado a decimal
-            'presupuesto_inicial' => 5000,
+            'cantidad_total_precio' => 0.00,
+            'presupuesto_inicial' => 420000,
         ]);
     }
 }

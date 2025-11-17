@@ -28,7 +28,7 @@
                 Actualizar Cantidad
             </h3>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 20px; align-items: center;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: center;">
                 <div class="form-group">
                     {!! Form::label('cantidad_actual', 'Cantidad Actual: ') !!}
                     {!! Form::number('cantidad_actual', null, [
@@ -63,6 +63,32 @@
                         'id' => 'nueva_cantidad',
                     ]) !!}
                     @error('nueva_cantidad')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    {!! Form::label('kardex_id', 'Seleccionar Kardex:') !!}
+
+                    {!! Form::select(
+                        'kardex_id',
+                        ['' => 'Sin Kardex'] + $kardex->toArray(), // 👈 convierte a array aquí
+                        null,
+                        ['class' => 'w-50 form-control'],
+                    ) !!}
+
+                    @error('kardex_id')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('proveedor', 'Proveedor: ') !!}
+                    {!! Form::text('proveedor', null, [
+                        'class' => 'w-100 form-control',
+                        'placeholder' => 'Agregar proveedor',
+                        'id' => 'proveedor',
+                    ]) !!}
+                    @error('proveedor')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
