@@ -258,7 +258,7 @@
 
     <div class="container">
 
-        <h1>Registro de materiales ingresados
+        <h1>Registro de materiales Solicitados
 
         </h1>
         <h2>Kardex: <span class="cod">{{ $kardex->cod_kardex }}</span>
@@ -268,7 +268,7 @@
             <span class="cod">{{ $kardex->project->nombre_empresa }}</span>
         </h2>
         <h2>Nombre del proyecto: <span class="cod">{{ $kardex->project->nombre_proyecto }}</span></h2>
-        <h2>Monto total de ingresos: <span class="cod">{{ $totalPrecio }} Bs</span></h2>
+        <h2>Monto total de Solicitudes: <span class="cod">{{ $totalPrecio }} Bs</span></h2>
 
 
 

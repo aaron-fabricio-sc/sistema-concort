@@ -166,9 +166,12 @@ class ProjectController extends Controller
         $kardex = Kardex::find($project->kardex->id);
 
         $saldo = $totalPrecioIngresos - $totalPrecioSalidas;
+        $diferenciaPresupuesto = $project->presupuesto_inicial - $totalPrecioSalidas;
 
 
-        $pdf = Pdf::loadView('admin.projects.pdf.kardex', compact("ingresos", "totalPrecioIngresos", "salidas", "totalPrecioSalidas", "kardex", "saldo"));
+
+
+        $pdf = Pdf::loadView('admin.projects.pdf.kardex', compact("ingresos", "totalPrecioIngresos", "salidas", "totalPrecioSalidas", "kardex", "saldo", "project", "diferenciaPresupuesto"));
         return $pdf->stream();
     }
 }

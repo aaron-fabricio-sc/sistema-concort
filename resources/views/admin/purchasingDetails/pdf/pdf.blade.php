@@ -248,7 +248,7 @@
 
     <div class="container">
 
-        <h1 style="margin-top:35px;">Detalles de ingresos de materiales</h1>
+        <h1 style="margin-top:35px;">Lista de ingresos a almacén del material : {{ $article->nombre }} </h1>
         <table>
             <thead>
                 <tr>

@@ -242,7 +242,7 @@ class ArticleController extends Controller
         $purchanseDetails->save();
 
 
-        return redirect()->route("admin.articles.edit", $article->id)->with("message", "Se actualizó la cantidad del Material correctamente");
+        return redirect()->route("admin.articles.index", $article->id)->with("message", "Se actualizó la cantidad del Material correctamente");
         //return view('admin.articles.updateCantidad', compact("article"));
     }
 

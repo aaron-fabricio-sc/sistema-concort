@@ -275,18 +275,25 @@
             <span class="cod">{{ $kardex->project->nombre_empresa }}</span>
         </h2>
         <h2>Nombre del proyecto: <span class="cod">{{ $kardex->project->nombre_proyecto }}</span></h2>
-        <h2>Monto total de ingresos: <span class="cod">{{ $totalPrecioIngresos }} Bs</span></h2>
-        <h2>Monto total de Salidas: <span>{{ $totalPrecioSalidas }} Bs</span></h2>
+        <h2>Presupuesto Inicial de obra: <span class="cod">{{ $project->presupuesto_inicial }}</span></h2>
+        <h2>Monto total de Solicitudes de material: <span class="cod">{{ $totalPrecioIngresos }} Bs</span></h2>
+        <h2>Monto total de envíos de material de almacén a la obra: <span>{{ $totalPrecioSalidas }} Bs</span></h2>
         <h2>
-            Saldo Total
+            Diferencia entre Solicitudes y Envíos a Obra
             <span style="color: {{ $saldo < 0 ? 'red' : 'green' }};">
                 {{ $saldo }} Bs
+            </span>
+        </h2>
+        <h2>
+            Diferencia entre Presupuesto Inicial de obra y Envíos de materiales a Obra
+            <span style="color: {{ $diferenciaPresupuesto < 0 ? 'red' : 'green' }};">
+                {{ $diferenciaPresupuesto }} Bs
             </span>
         </h2>
 
         </h2>
         <div class="page-break"></div>
-        <h1 style="color:green;">Registro de materiales ingresados
+        <h1 style="color:green;">Registro de materiales Solicitados
 
         </h1>
         <table>
@@ -335,7 +342,7 @@
     <div class="page-break"></div>
     <div class="container">
 
-        <h1 style="color:red;">Registro de salidas de materiales
+        <h1 style="color:red;">Registro de materiales enviados a obra
         </h1>
         <table>
             <thead>
@@ -352,9 +359,6 @@
 
 
                 </tr>
-
-
-
 
             </thead>
             <tbody>

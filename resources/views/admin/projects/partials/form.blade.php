@@ -47,6 +47,8 @@
     {!! Form::number('presupuesto_inicial', null, [
         'class' => 'form-control w-50',
         'placeholder' => 'Ingrese el presupuesto inicial',
+        'step' => '0.01', // <-- permitir decimales
+        'min' => '0', // <-- opcional: no negativos
     ]) !!}
 
     @error('presupuesto_inicial')

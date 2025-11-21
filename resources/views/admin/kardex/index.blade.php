@@ -35,12 +35,12 @@
                                 <th>Nombre de la empresa</th>
 
                                 <th>Nombre del Proyecto</th>
-                                <th>Monto Total de Materiales Ingresos</th>
-                                <th>Monto Total de Materiales Enviados</th>
+                                <th>Monto Total de Solicitud de materiales</th>
+                                <th>Monto Total de Materiales Enviados a Obra</th>
                                 <th>Estado</th>
                                 <th class="text-primary">Editar</th>
-                                <th class="text-success">Ingresos</th>
-                                <th class="text-danger">Salidas</th>
+                                <th class="text-success">Solicitudes</th>
+                                <th class="text-danger">Envios</th>
                                 <th class="text-danger">Eliminar</th>
 
                             </tr>
@@ -103,15 +103,15 @@
                                 <th>Cod</th>
                                 <th>Nombre de la empresa</th>
                                 <th>Nombre del Proyecto</th>
-                                <th>Monto Total de Materiales Ingresos</th>
-                                <th>Monto Total de Materiales Enviados</th>
+                                <th>Monto Total de Solicitud de materiales</th>
+                                <th>Monto Total de Materiales Enviados a Obra</th>
                                 <th>Estado</th>
 
 
 
                                 <th class="text-primary">Editar</th>
-                                <th class="text-success">Ingresos</th>
-                                <th class="text-danger">Salidas</th>
+                                <th class="text-success">Solicitudes</th>
+                                <th class="text-danger">Envios</th>
 
                                 <th class="text-danger">Eliminar</th>
 

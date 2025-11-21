@@ -41,17 +41,17 @@
                                 <th>Estado</th>
 
 
-                                <th>Monto Invertido Actualmente</th>
+                                <th>Monto en Bs de Materiales Enviados a obra</th>
                                 <th>Inversión Inicial</th>
-                                <th>Diferencia de la Inversión</th>
+                                <th>Diferencia entre la Inversión y monto de materiales enviados</th>
                                 <th>Presupuesto</th>
 
 
 
 
 
-                                <th class="text-success">Enviar Material</th>
-                                <th class="text-info">Ver Materiales enviados</th>
+                                <th class="text-success">Enviar Material de almacén a obra</th>
+                                <th class="text-info">Lista materiales enviados a obra</th>
 
                                 <th class="text-primary">Descargar Kardex</th>
 
@@ -151,15 +151,15 @@
                                 <th>Estado</th>
 
 
-                                <th>Monto Invertido Actualmente</th>
+                                <th>Monto en Bs de Materiales Enviados a obra</th>
                                 <th>Inversión Inicial</th>
 
-                                <th>Diferencia de la Inversión</th>
+                                <th>Diferencia entre la Inversión y monto de materiales enviados</th>
                                 <th>Presupuesto</th>
 
 
-                                <th class="text-success">Enviar Material</th>
-                                <th class="text-info">Ver Materiales enviados</th>
+                                <th class="text-success">Enviar Material de almace</th>
+                                <th class="text-info">Lista materiales enviados a obra</th>
                                 <th class="text-primary">Descargar Kardex</th>
 
                                 <th class="text-primary">Editar</th>

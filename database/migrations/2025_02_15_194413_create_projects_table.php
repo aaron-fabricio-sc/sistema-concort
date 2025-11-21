@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string("estado")->nullable()->default('Iniciado');
             $table->integer('cantidad_total_materiales')->nullable()->default(0);
             $table->decimal('cantidad_total_precio')->nullable()->default(0.00);
-            $table->integer('presupuesto_inicial')->nullable()->default(0);
+            $table->decimal('presupuesto_inicial')->nullable()->default(0.00);
             $table->tinyInteger('status')->default(1);
 
             $table->timestamps();

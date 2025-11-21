@@ -54,7 +54,7 @@
 
 
                                 <th class="text-primary">Editar</th>
-                                <th class="text-success">Ver Entradas</th>
+                                <th class="text-success">Registro de Materiales Ingresados</th>
 
 
 
@@ -150,7 +150,7 @@
 
                                 <th class="text-primary">Editar</th>
 
-                                <th class="text-success">Ver Entradas</th>
+                                <th class="text-success">Registro de Materiales Ingresados</th>
 
                                 <th class="text-danger">Eliminar</th>
 

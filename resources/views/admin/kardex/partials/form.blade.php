@@ -2,7 +2,7 @@
     {!! Form::label('cod_kardex', ' COD Kardex: ') !!}
     {!! Form::text('cod_kardex', null, [
         'class' => 'form-control w-50',
-        'placeholder' => 'ingrese un Nombre de la empresa',
+        'placeholder' => 'Ingrese un código o un nombre',
     ]) !!}
 
     @error('cod_kardex')
