@@ -25,12 +25,12 @@
             {!! Form::model($article, ['route' => ['admin.articles.updateCantidad', $article], 'method' => 'put']) !!}
 
             <h3>
-                Actualizar Cantidad
+                Actualizar Cantidad de Material
             </h3>
 
             <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: center;">
                 <div class="form-group">
-                    {!! Form::label('cantidad_actual', 'Cantidad Actual: ') !!}
+                    {!! Form::label('cantidad_actual', 'Cantidad Actual En almacén: ') !!}
                     {!! Form::number('cantidad_actual', null, [
                         'class' => 'w-100 form-control',
                         'placeholder' => 'Cantidad actual',
@@ -67,7 +67,7 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    {!! Form::label('kardex_id', 'Seleccionar Kardex:') !!}
+                    {!! Form::label('kardex_id', 'En caso de que sea Solicitud selecciona un Kardex:') !!}
 
                     {!! Form::select(
                         'kardex_id',

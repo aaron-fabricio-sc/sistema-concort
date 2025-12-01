@@ -40,7 +40,7 @@
                                 <th>Estado</th>
                                 <th class="text-primary">Editar</th>
                                 <th class="text-success">Solicitudes</th>
-                                <th class="text-danger">Envios</th>
+                                <th class="text-danger">Envíos a Obra</th>
                                 <th class="text-danger">Eliminar</th>
 
                             </tr>
@@ -111,7 +111,7 @@
 
                                 <th class="text-primary">Editar</th>
                                 <th class="text-success">Solicitudes</th>
-                                <th class="text-danger">Envios</th>
+                                <th class="text-danger">Envíos a Obra</th>
 
                                 <th class="text-danger">Eliminar</th>
 
