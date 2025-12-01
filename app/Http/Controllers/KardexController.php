@@ -46,9 +46,19 @@ class KardexController extends Controller
     {
         //
 
-        if (empty($request->cod_kerdex)) {
+
+
+        if (empty($request->cod_kardex)) {
             return redirect()->back()->with("message-danger", "El campo código kardex es obligatorio.");
         }
+
+        $project = Project::where("id", $request->project_id)->first();
+
+
+        if ($project->kardex) {
+            return redirect()->back()->with("message-danger", "El proyecto seleccionado ya tiene un kardex asociado.");
+        }
+
         $kardex = Kardex::create($request->all());
 
         return redirect()->route("admin.kardex.index")->with("message", "Se creo el Kardex.");

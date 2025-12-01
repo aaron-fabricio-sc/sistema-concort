@@ -25,8 +25,8 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         User::create([
-            "name" => 'beatris',
-            "email" => 'beatris@beatris.com',
+            "name" => 'beatriz',
+            "email" => 'beatriz@beatriz.com',
             "password" => bcrypt(123456)
         ]);
 
@@ -38,9 +38,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             ArticleSeeder::class
-        ]);
-        $this->call([
-            ProjectSeeder::class,
         ]);
     }
 }
